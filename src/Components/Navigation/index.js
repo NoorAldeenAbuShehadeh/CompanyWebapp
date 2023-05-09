@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar, Button, Stack } from "react-bootstrap";
+import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { useTheme } from "react-jss";
 import Style from "./Style";
 import { useState } from "react";
@@ -7,7 +7,7 @@ const Navigation = () => {
   const classes = Style({ theme });
   const [active,setActive] = useState('home');
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className={classes.navigationContainer}>
       <Container>
         <div>
           <img src="companyLogo.png"></img>

@@ -1,6 +1,9 @@
 import { createUseStyles } from "react-jss";
 
 const Style = createUseStyles({
+    navigationContainer:{
+        borderBottom:'1px solid #FFFFFF'
+    },
     Logo:{
         fontSize:'30px',
         fontWeight:700
