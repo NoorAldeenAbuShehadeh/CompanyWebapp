@@ -2,16 +2,28 @@ import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { useTheme } from "react-jss";
 import Style from "./Style";
 import { useState } from "react";
-const Navigation = () => {
+import { Link } from "react-router-dom";
+import { routes } from "../../Utils/Utils";
+
+const Navigation = ({ activeTab }) => {
   const theme = useTheme();
   const classes = Style({ theme });
-  const [active,setActive] = useState('home');
+  // const [active, setActive] = useState("Home");
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className={classes.navigationContainer}>
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      className={classes.navigationContainer}
+    >
       <Container>
         <div>
           <img src="companyLogo.png"></img>
-          <Navbar.Brand className={classes.Logo}> CodeScape Solutions</Navbar.Brand>
+          <Navbar.Brand className={classes.Logo}>
+            {" "}
+            CodeScape Solutions
+          </Navbar.Brand>
         </div>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse
@@ -19,36 +31,74 @@ const Navigation = () => {
           className="justify-content-end"
         >
           <Nav>
-            <Nav.Link eventKey={1} href="#home" className={active==='home'?classes.activeLink:classes.inActiveLink}
-            onClick={()=>setActive('home')}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link eventKey={2} href="#" className={active==='about'?classes.activeLink:classes.inActiveLink}
-            onClick={()=>setActive('about')}
+            {routes.map((route, idx) => {
+              return (
+                <Link
+                  eventKey={idx + 1}
+                  to={route.path}
+                  className={
+                    activeTab === route.title
+                      ? classes.activeLink
+                      : classes.inActiveLink
+                  }
+                  style={{ color: "white", textDecoration: "none" }}
+                  // onClick={() => setActive("Home")}
+                >
+                  {route.title}
+                </Link>
+              );
+            })}
+            {/* <Link
+              eventKey={2}
+              to="/AboutMe"
+              className={
+                active === "about" ? classes.activeLink : classes.inActiveLink
+              }
+              onClick={() => setActive("about")}
             >
               About Us
-            </Nav.Link>
-            <Nav.Link eventKey={3} href="#" className={active==='services'?classes.activeLink:classes.inActiveLink}
-            onClick={()=>setActive('services')}
+            </Link>
+            <Link
+              eventKey={3}
+              to=""
+              className={
+                active === "services"
+                  ? classes.activeLink
+                  : classes.inActiveLink
+              }
+              onClick={() => setActive("services")}
             >
               Services
-            </Nav.Link>
-            <Nav.Link eventKey={4} href="#" className={active==='news'?classes.activeLink:classes.inActiveLink}
-            onClick={()=>setActive('news')}
+            </Link>
+            <Link
+              eventKey={4}
+              to=""
+              className={
+                active === "news" ? classes.activeLink : classes.inActiveLink
+              }
+              onClick={() => setActive("news")}
             >
               News
-            </Nav.Link>
-            <Nav.Link eventKey={5} href="#" className={active==='signIn'?classes.activeLink:classes.inActiveLink}
-            onClick={()=>setActive('signIn')}
+            </Link>
+            <Link
+              eventKey={5}
+              to=""
+              className={
+                active === "signIn" ? classes.activeLink : classes.inActiveLink
+              }
+              onClick={() => setActive("signIn")}
             >
               Sign In
-            </Nav.Link>
+            </Link> */}
           </Nav>
           <Button
             variant="outline-primary"
-            className={active==='contact'?`${classes.activeLink} ${classes.Button}`:`${classes.inActiveLink} ${classes.Button}`}
-            onClick={()=>setActive('contact')}
+            // className={
+            //   active === "contact"
+            //     ? `${classes.activeLink} ${classes.Button}`
+            //     : `${classes.inActiveLink} ${classes.Button}`
+            // }
+            // onClick={() => setActive("contact")}
           >
             Contact Us
           </Button>
