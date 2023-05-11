@@ -24,7 +24,8 @@ const Style = createUseStyles({
     inActiveLink:{
         borderBottom:'none',
         margin:'10px',
-        color:'#FFFFFF8C!important'
+        color:'#FFFFFF8C!important',
+        textDecoration: "none"
     },
     Button:{
         borderBottom:'1px solid blue'
@@ -32,11 +33,24 @@ const Style = createUseStyles({
     activeLink:{
         borderBottom:'4px solid blue',
         margin:'10px',
-        color:'white!important'
+        color:'white!important',
+        textDecoration: "none"
     },
     burgerButton:{
         backgroundColor: 'white'
-    }   
+    },    
+    contactUS:{
+        border:'1px solid blue',
+        padding:'6px',
+        borderRadius:'5px'
+    },  
+    NavLinks:{
+        display:'flex',
+        alignItems:'center',
+        "@media (max-width: 992px)": {
+            alignItems:'flex-start'
+        },
+    } 
   });
 
   export default Style

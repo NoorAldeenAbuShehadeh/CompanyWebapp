@@ -1,11 +1,11 @@
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { useTheme } from "react-jss";
 import Style from "./Style";
-import { useState } from "react";
-const Navigation = () => {
+import { Link } from "react-router-dom";
+import { routes,routeNames } from "../../Utils/Utils";
+const Navigation = ({ activeTab }) => {
   const theme = useTheme();
   const classes = Style({ theme });
-  const [active,setActive] = useState('home');
   return (
     <Navbar collapseOnSelect expand="lg" className={classes.navigationContainer}>
       <Container className={classes.container}>
@@ -18,8 +18,36 @@ const Navigation = () => {
           id="responsive-navbar-nav"
           className="justify-content-end"
         >
-          <Nav>
-            <Nav.Link eventKey={1} href="#home" className={active==='home'?classes.activeLink:classes.inActiveLink}
+          <Nav className={classes.NavLinks}>
+          {routes.map((route, idx) => {
+              return (
+                <Link
+                  eventKey={idx + 1}
+                  to={route.path}
+                  className={
+                    `${activeTab === route.title
+                      ? classes.activeLink
+                      : classes.inActiveLink} 
+                      ${routeNames.CONTACT_Us===route.title?classes.contactUS:""}`
+                  }
+                >
+                  {route.title}
+                </Link>
+              );
+            })}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default Navigation;
+
+
+/*
+
+<Nav.Link eventKey={1} href="#" className={active==='home'?classes.activeLink:classes.inActiveLink}
             onClick={()=>setActive('home')}
             >
               Home
@@ -44,18 +72,4 @@ const Navigation = () => {
             >
               Sign In
             </Nav.Link>
-          </Nav>
-          <Button
-            variant="outline-primary"
-            className={active==='contact'?`${classes.activeLink} ${classes.Button}`:`${classes.inActiveLink} ${classes.Button}`}
-            onClick={()=>setActive('contact')}
-          >
-            Contact Us
-          </Button>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
-};
-
-export default Navigation;
+*/
