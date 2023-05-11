@@ -43,33 +43,3 @@ const Navigation = ({ activeTab }) => {
 };
 
 export default Navigation;
-
-
-/*
-
-<Nav.Link eventKey={1} href="#" className={active==='home'?classes.activeLink:classes.inActiveLink}
-            onClick={()=>setActive('home')}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link eventKey={2} href="#" className={active==='about'?classes.activeLink:classes.inActiveLink}
-            onClick={()=>setActive('about')}
-            >
-              About Us
-            </Nav.Link>
-            <Nav.Link eventKey={3} href="#" className={active==='services'?classes.activeLink:classes.inActiveLink}
-            onClick={()=>setActive('services')}
-            >
-              Services
-            </Nav.Link>
-            <Nav.Link eventKey={4} href="#" className={active==='news'?classes.activeLink:classes.inActiveLink}
-            onClick={()=>setActive('news')}
-            >
-              News
-            </Nav.Link>
-            <Nav.Link eventKey={5} href="#" className={active==='signIn'?classes.activeLink:classes.inActiveLink}
-            onClick={()=>setActive('signIn')}
-            >
-              Sign In
-            </Nav.Link>
-*/
