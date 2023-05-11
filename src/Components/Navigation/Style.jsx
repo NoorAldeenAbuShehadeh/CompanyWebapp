@@ -1,12 +1,25 @@
 import { createUseStyles } from "react-jss";
 
 const Style = createUseStyles({
+    container:{
+        maxWidth:'100%'
+    },
     navigationContainer:{
-        borderBottom:'1px solid #FFFFFF'
+        borderBottom:'0.7px solid #FFFFFF',
+        backgroundColor:'black',
+        opacity:0.9
+    },
+    LogoCont:{
+        display:'flex',
+        alignItems:'center'
     },
     Logo:{
-        fontSize:'30px',
-        fontWeight:700
+        color:'white',
+        fontSize:'36px',
+        fontWeight:700,
+        '&:hover':{
+            color:'white',
+        }
     },
     inActiveLink:{
         borderBottom:'none',
@@ -19,8 +32,11 @@ const Style = createUseStyles({
     activeLink:{
         borderBottom:'4px solid blue',
         margin:'10px',
-        color:'#FFFFFFFF'
-    },    
+        color:'white!important'
+    },
+    burgerButton:{
+        backgroundColor: 'white'
+    }   
   });
 
   export default Style

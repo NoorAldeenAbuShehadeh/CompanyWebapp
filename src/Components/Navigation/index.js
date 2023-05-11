@@ -7,13 +7,13 @@ const Navigation = () => {
   const classes = Style({ theme });
   const [active,setActive] = useState('home');
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className={classes.navigationContainer}>
-      <Container>
-        <div>
+    <Navbar collapseOnSelect expand="lg" className={classes.navigationContainer}>
+      <Container className={classes.container}>
+        <div className={classes.LogoCont}>
           <img src="companyLogo.png"></img>
-          <Navbar.Brand className={classes.Logo}> CodeScape Solutions</Navbar.Brand>
+          <Navbar.Brand className={classes.Logo}> CodeScape</Navbar.Brand>
         </div>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" className={classes.burgerButton}/>
         <Navbar.Collapse
           id="responsive-navbar-nav"
           className="justify-content-end"
