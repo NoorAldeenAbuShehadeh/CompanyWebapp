@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import { routeNames } from "../../Utils/Utils";
-import HeroSection from "../../Components/HeroSection"
-const Home = () => {
+
+const AboutUs = () => {
   const setActiveTab = useOutletContext();
   useEffect(() => {
-    setActiveTab(routeNames.HOME);
+    setActiveTab(routeNames.ABOUT_Us);
   }, []);
-
+  
   return (
-    <HeroSection />
+    <div>AboutUs</div>
   )
 }
 
-export default Home
+export default AboutUs
