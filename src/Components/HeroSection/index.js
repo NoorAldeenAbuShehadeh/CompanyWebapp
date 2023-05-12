@@ -3,10 +3,10 @@ import { useTheme } from "react-jss";
 import Style from "./Style";
 import { Alert, Button } from "react-bootstrap";
 import { BsArrowRight } from "react-icons/bs";
-import Title from "./Title";
-import BestOpinion from "./BestOpinion";
-import Development from "./Development";
-import Facts from "./Facts";
+import Title from "./SubComponent/Title";
+import BestOpinion from "./SubComponent/BestOpinion";
+import Development from "./SubComponent/Development";
+import Facts from "./SubComponent/Facts";
 const HeroSection = () => {
   const theme = useTheme();
   const classes = Style({ theme });

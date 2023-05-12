@@ -14,6 +14,7 @@ const Style = createUseStyles({
         alignItems:'center'
     },
     Logo:{
+        marginRight:0,
         color:'white',
         fontSize:'36px',
         fontWeight:700,

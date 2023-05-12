@@ -20,9 +20,9 @@ const Style = createUseStyles((theme)=>({
     },subAddress:{
         color:theme.colors.secondary,
         fontSize:'20px',
-        maxWidth:'530px',
+        maxWidth:'590px',
         textAlign:'center',
-        marginTop:'50px',
+        marginTop:'30px',
         padding:'0 10px'
     },
         reviewsContainer:{
@@ -125,7 +125,7 @@ const Style = createUseStyles((theme)=>({
     },
     AlertCont1:{
         padding:'15px 20px',
-        width:'310px',
+        width:'330px',
         borderRadius:'12px',
         margin:0,
         position:'absolute',

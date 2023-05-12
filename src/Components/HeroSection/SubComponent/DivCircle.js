@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTheme } from "react-jss";
-import Style from "./Style";
+import Style from "../Style";
 const DivCircle = ({color, Logo}) => {
     const theme = useTheme();
     const classes = Style({ theme });

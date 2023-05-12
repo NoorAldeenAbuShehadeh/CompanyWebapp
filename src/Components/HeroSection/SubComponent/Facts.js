@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "react-jss";
-import Style from "./Style";
+import Style from "../Style";
 const Facts = () => {
   const theme = useTheme();
   const classes = Style({ theme });

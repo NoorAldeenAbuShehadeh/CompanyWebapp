@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "react-jss";
-import Style from "./Style";
+import Style from "../Style";
 import { Alert } from "react-bootstrap";
 import { BsFillStarFill } from "react-icons/bs";
 const BestOpinion = () => {
