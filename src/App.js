@@ -8,6 +8,24 @@ import {
 } from "react-router-dom";
 import { routes } from "./Utils/Utils";
 import HomeLayout from "./Layout/PageLayout";
+import { ThemeProvider } from "react-jss";
+
+const theme ={
+  colors: {
+      primary: '#41BBEA',
+      secondary: '#CECECE',
+      background: 'black',
+      text: 'white',
+      darkGray: '#454545',
+      lightGray: '#DBDBDB',
+      alertBackground: 'rgba(255, 255, 255, 0.36)',
+    },
+    spacing: {
+      small: '10px',
+      medium: '30px',
+      large: '70px',
+    },
+}
 
 function App() {
   const router = createBrowserRouter(
@@ -21,9 +39,11 @@ function App() {
   );
 
   return (
+    <ThemeProvider theme={theme}>
     <Suspense fallback={<>Loading</>}>
       <RouterProvider router={router} />;
     </Suspense>
+    </ThemeProvider>
   );
 }
 

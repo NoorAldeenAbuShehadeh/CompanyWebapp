@@ -13,18 +13,18 @@ const HeroSection = () => {
   return (
     <div className={classes.container}>
       <Title />
-
-      <Alert className={classes.GetQuot}>
-        <span className={classes.GetQoutTxt}>Get a Quote</span>
-        <Button variant="light">
-          <BsArrowRight size={20} />
-        </Button>
-      </Alert>
-
       <div className={classes.reviewsContainer}>
-      <Facts />
-      <BestOpinion />
-      <Development />
+        <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+          <Alert className={classes.GetQuot}>
+            <span className={classes.GetQoutTxt}>Get a Quote</span>
+            <Button variant="light">
+              <BsArrowRight size={20} />
+            </Button>
+          </Alert>
+          <Facts />
+        </div>
+        <BestOpinion />
+        <Development />
       </div>
     </div>
   );

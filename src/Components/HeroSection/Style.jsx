@@ -1,24 +1,24 @@
 import { createUseStyles } from "react-jss";
 
-const Style = createUseStyles({
+const Style = createUseStyles((theme)=>({
     container:{
-        backgroundColor:'black',
+        backgroundColor: theme.colors.background,
         opacity:0.9,
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
-        paddingTop:'70px'
+        paddingTop: theme.spacing.large,
     },
     address:{
         maxWidth:'650px',
         fontSize:'42px',
         fontWeight:700,
-        color:'white',
+        color:theme.colors.text,
         textAlign:'center'
     },highlight:{
-        color:'#41BBEA'
+        color:theme.colors.primary
     },subAddress:{
-        color:'#CECECE',
+        color:theme.colors.secondary,
         fontSize:'20px',
         maxWidth:'530px',
         textAlign:'center',
@@ -37,26 +37,27 @@ const Style = createUseStyles({
         },
 
     GetQuot:{
+        margin:theme.spacing.small,
         padding:'10px',
-        backgroundColor:'darkgray',
-        border:'1px solid white',
-        marginTop:'30px'/*---------------------------- */
+        backgroundColor:theme.colors.darkGray,
+        border:`1px solid ${theme.colors.text}`,
+        marginTop:'30px',/*---------------------------- */
     },
     GetQoutTxt:{
         marginRight:'10px',
-        color:'white'
+        color:theme.colors.text
     },
     numberTxt:{
         fontSize:'35px',
         fontWeight:'bold',
-        color:'#DBDBDB',
+        color:theme.colors.lightGray,
         textAlign:'center'
     },
     subTxt:{
         fontSize:'13px',
         maxWidth:'100px',
         textAlign:'center',
-        color:'#DBDBDB'
+        color:theme.colors.lightGray,
     },
     countContainer:{
         display:'flex',
@@ -64,14 +65,15 @@ const Style = createUseStyles({
         width:'280px',
         margin:'30px 0',/*------------------------------ */
         "@media (min-width: 400px)": {
-            margin:'0 150px'
-          }
+            margin:'30px 150px'
+        },   
+        marginTop:'30px',     
     },
     bestOpinion:{
         maxWidth:'230px',
         padding:'20px',
         borderRadius:'20px',
-        backgroundColor:'#454545',
+        backgroundColor:theme.colors.darkGray,
         "@media (min-width: 827px)": {
             order:-5
         },
@@ -86,7 +88,7 @@ const Style = createUseStyles({
         color:'white'
     },
     DoContainer:{
-        backgroundColor:'rgba(255, 255, 255, 0.36)',
+        backgroundColor:theme.colors.alertBackground,
         width:'230px',
         height:'238px',
         position:'relative',
@@ -95,7 +97,7 @@ const Style = createUseStyles({
         marginRight: '70px',
     },
     opinionTitle:{
-        color:'white',
+        color:theme.colors.text,
         fontSize:'16px',
         fontWeight:'500',
         marginTop:'10px'
@@ -103,7 +105,7 @@ const Style = createUseStyles({
     opinionDescription:{
         fontSize:'12px',
         fontWeight:'400',
-        color:'#A6A6A6',
+        color:theme.colors.secondary,
         lineHeight:'15px'
     },circleDiv:{
         width:'44px',
@@ -143,11 +145,11 @@ const Style = createUseStyles({
     },
     textDevComp:{
         fontWeight:650,
-        color:'black'
+        color:theme.colors.background,
     }
 
 
 
-  });
+  }));
 
   export default Style
