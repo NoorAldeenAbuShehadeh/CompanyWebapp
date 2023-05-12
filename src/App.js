@@ -7,6 +7,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { routes } from "./Utils/Utils";
+
 import HomeLayout from "./Layout/PageLayout";
 import { ThemeProvider } from "react-jss";
 
@@ -26,6 +27,7 @@ const theme ={
       large: '70px',
     },
 }
+
 
 function App() {
   const router = createBrowserRouter(
