@@ -1,9 +1,9 @@
-import React from "react";
-import { useTheme } from "react-jss";
-import Style from "../Style";
+import React from "react"
+import { useTheme } from "react-jss"
+import Style from "../Style"
 const Facts = () => {
-  const theme = useTheme();
-  const classes = Style({ theme });
+  const theme = useTheme()
+  const classes = Style({ theme })
   return (
     <div className={classes.countContainer}>
       <div>

@@ -1,14 +1,14 @@
-import React from "react";
-import { useTheme } from "react-jss";
-import Style from "../Style";
-import { Alert } from "react-bootstrap";
-import { BsCodeSlash } from "react-icons/bs";
-import { IoMdDesktop } from "react-icons/io";
-import DivCircle from "./DivCircle";
+import React from "react"
+import { useTheme } from "react-jss"
+import Style from "../Style"
+import { Alert } from "react-bootstrap"
+import { BsCodeSlash } from "react-icons/bs"
+import { IoMdDesktop } from "react-icons/io"
+import DivCircle from "./DivCircle"
 
 const Development = () => {
-  const theme = useTheme();
-  const classes = Style({ theme });
+  const theme = useTheme()
+  const classes = Style({ theme })
   return (
     <>
       <Alert className={classes.DoContainer}>
@@ -47,7 +47,7 @@ const Development = () => {
         </Alert>
       </Alert>
     </>
-  );
-};
+  )
+}
 
-export default Development;
+export default Development

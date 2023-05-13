@@ -1,17 +1,17 @@
-import React from "react";
-import { useTheme } from "react-jss";
-import Style from "./Style";
-import { Alert, Button } from "react-bootstrap";
-import { BsArrowRight } from "react-icons/bs";
-import Title from "./SubComponent/Title";
-import BestOpinion from "./SubComponent/BestOpinion";
-import Development from "./SubComponent/Development";
-import Facts from "./SubComponent/Facts";
+import React from "react"
+import { useTheme } from "react-jss"
+import Style from "./Style"
+import { Alert, Button, Container } from "react-bootstrap"
+import { BsArrowRight } from "react-icons/bs"
+import Title from "./SubComponent/Title"
+import BestOpinion from "./SubComponent/BestOpinion"
+import Development from "./SubComponent/Development"
+import Facts from "./SubComponent/Facts"
 const HeroSection = () => {
-  const theme = useTheme();
-  const classes = Style({ theme });
+  const theme = useTheme()
+  const classes = Style({ theme })
   return (
-    <div className={classes.container}>
+    <Container fluid className={classes.containerClass}>
       <Title />
       <div className={classes.reviewsContainer}>
         <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
@@ -26,8 +26,8 @@ const HeroSection = () => {
         <BestOpinion />
         <Development />
       </div>
-    </div>
-  );
-};
+    </Container>
+  )
+}
 
-export default HeroSection;
+export default HeroSection
