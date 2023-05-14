@@ -2,9 +2,11 @@ import { createUseStyles } from "react-jss"
 
 const Style = createUseStyles((theme)=>({
     container:{
-        width:'380px',
+        maxWidth:'380px',
+        minWidth:'320px',
         borderRadius:'15px',
         padding:'30px',
+        margin:'10px'
     },
     image:{
         margin:'10px',

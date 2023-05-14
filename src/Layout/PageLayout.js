@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Outlet } from "react-router-dom"
+import Footer from "../Components/Footer.js"
 import Navigation from "../Components/Navigation"
 import { routeNames } from "../Utils/Utils"
 
@@ -10,6 +11,7 @@ function PageLayout() {
     <div>
       <Navigation activeTab={activeTab} />
       <Outlet context={setActiveTab} />
+      <Footer />
     </div>
   )
 }
