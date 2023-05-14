@@ -3,30 +3,12 @@ import { Container, Row, Col } from "react-bootstrap"
 import AboutComponent from "./subComponents/AboutComponent"
 import { useTheme } from "react-jss"
 import Style from "./subComponents/AboutComponent/Style"
+import CardsData from '../../Utils/AboutCards'
 const AboutSection = () => {
   const theme = useTheme()
   const classes = Style({ theme })
 
-  const values = [
-    {
-      imgSrc: "images/VR Array 1.png",
-      title: "Cutting Edge Technology",
-      description:
-        "Take the advantage of our cutting-edge solutions to increase your Return of Investment on IT.",
-    },
-    {
-      imgSrc: "images/Line Chart 1.png",
-      title: "Cross Device Compatibility",
-      description:
-        "Multi-device compatibility ensures that creating, viewing and providing quick and easy",
-    },
-    {
-      imgSrc: "images/clock 1.png",
-      title: "Tailer Mode Development",
-      description:
-        "Scalable and dynamic systems with the ever-changing trends to meet your dynamic business needs",
-    },
-  ]
+  const values = CardsData;
   const [active, setActive] = useState(0)
   return (
     <Container fluid className={classes.AboutContainer}>
