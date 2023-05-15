@@ -17,10 +17,10 @@ const Footer = () => {
   const classes = Style({ theme });
   return (
     <>
-      <footer className={`text-light py-3`}>
+      <footer className={`text-light py-3 `}>
         <Container fluid className={classes.container}>
-          <Row>
-            <Col md={3} >
+          <Row wrap="wrap" className={`d-flex justify-content-center ${classes.rowBorder}`}>
+            <Col className={classes.colWidth}>
               <h4>Key Words</h4>
               {footerKeywords.map((item) => (
                 <Button
@@ -31,7 +31,7 @@ const Footer = () => {
                 </Button>
               ))}
             </Col>
-            <Col md={3}>
+            <Col className={classes.colWidth}>
               <h4>CodeScape Solutions</h4>
               <Form className="d-flex m-2">
                 <FormControl type="text" placeholder="Search" className={classes.searchInput}/>
@@ -39,10 +39,10 @@ const Footer = () => {
                   <FaSearch />
                 </Button>
               </Form>
-              <h5 className="m-3">Entering data keys to search for it.</h5>
-              <h5 className="m-3">Entering data keys to search for it.</h5>
+              <p className="m-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              
             </Col>
-            <Col md={3}>
+            <Col className={classes.colWidth}>
               <h4>KNOWLEDGE BASE</h4>
               <p>Digital Marketing</p>
               <p>Content Marketing</p>
@@ -50,7 +50,13 @@ const Footer = () => {
               <p>Content Marketing</p>
               <p>SEO</p>
             </Col>
-            <Col md={3}>
+            <Col className={classes.colWidth}>
+            <h4>Contact</h4>
+            <ul className="list-unstyled">
+              <li>Address: 123 Main Street, City, Country</li>
+              <li>Email: info@example.com</li>
+              <li>Phone: 123-456-7890</li>
+            </ul>
             <Button variant="secondary" className="m-1"><BsYoutube/></Button>
             <Button variant="secondary" className="m-1"><BsTwitter/></Button>
             <Button variant="secondary" className="m-1"><BsInstagram/></Button>
