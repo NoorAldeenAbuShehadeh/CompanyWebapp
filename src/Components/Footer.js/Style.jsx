@@ -10,6 +10,9 @@ const Style = createUseStyles((theme)=>({
     container:{
         backgroundColor: theme.colors.background,
         padding:'70px'
+    },
+    searchInput:{
+        maxWidth:'200px'
     }
 }))
 
