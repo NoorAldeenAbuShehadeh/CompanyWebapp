@@ -1,11 +1,11 @@
-import React from "react";
-import { useTheme } from "react-jss";
-import Style from "../Style";
-import { Alert } from "react-bootstrap";
-import { BsFillStarFill } from "react-icons/bs";
+import React from "react"
+import { useTheme } from "react-jss"
+import Style from "../Style"
+import { Alert } from "react-bootstrap"
+import { BsFillStarFill } from "react-icons/bs"
 const BestOpinion = () => {
-  const theme = useTheme();
-  const classes = Style({ theme });
+  const theme = useTheme()
+  const classes = Style({ theme })
   return (
     <Alert variant="secondary" className={classes.bestOpinion}>
       <img src="John.png"></img>
@@ -24,7 +24,7 @@ const BestOpinion = () => {
         industry.
       </p>
     </Alert>
-  );
-};
+  )
+}
 
-export default BestOpinion;
+export default BestOpinion

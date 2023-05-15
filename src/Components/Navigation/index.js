@@ -1,14 +1,14 @@
-import { Container, Nav, Navbar, Button } from "react-bootstrap";
-import { useTheme } from "react-jss";
-import Style from "./Style";
-import { Link } from "react-router-dom";
-import { routes,routeNames } from "../../Utils/Utils";
+import { Container, Nav, Navbar } from "react-bootstrap"
+import { useTheme } from "react-jss"
+import Style from "./Style"
+import { Link } from "react-router-dom"
+import { routes,routeNames } from "../../Utils/Utils"
 const Navigation = ({ activeTab }) => {
-  const theme = useTheme();
-  const classes = Style({ theme });
+  const theme = useTheme()
+  const classes = Style({ theme })
   return (
     <Navbar collapseOnSelect expand="lg" className={classes.navigationContainer}>
-      <Container className={classes.container}>
+      <Container fluid>
         <div className={classes.LogoCont}>
           <img src="companyLogo.png"></img>
           <Navbar.Brand className={classes.Logo}> CodeScape</Navbar.Brand>
@@ -33,13 +33,13 @@ const Navigation = ({ activeTab }) => {
                 >
                   {route.title}
                 </Link>
-              );
+              )
             })}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation

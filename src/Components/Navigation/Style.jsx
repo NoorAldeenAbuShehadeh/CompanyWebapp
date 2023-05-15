@@ -1,9 +1,6 @@
 import { createUseStyles } from "react-jss";
 
 const Style = createUseStyles({
-    container:{
-        maxWidth:'100%'
-    },
     navigationContainer:{
         borderBottom:'0.7px solid #FFFFFF',
         backgroundColor:'black',

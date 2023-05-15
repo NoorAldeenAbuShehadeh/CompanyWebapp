@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
-import { routeNames } from "../../Utils/Utils";
+import React, { useEffect } from "react"
+import { useOutletContext } from "react-router-dom"
+import { routeNames } from "../../Utils/Utils"
 
 const News = () => {
-  const setActiveTab = useOutletContext();
+  const setActiveTab = useOutletContext()
   useEffect(() => {
-    setActiveTab(routeNames.NEWS);
-  }, []);
+    setActiveTab(routeNames.NEWS)
+  }, [])
 
   return (
     <div>News</div>

@@ -1,13 +1,16 @@
-import { createUseStyles } from "react-jss";
+import { createUseStyles } from "react-jss"
 
 const Style = createUseStyles((theme)=>({
-    container:{
+    containerClass:{
         backgroundColor: theme.colors.background,
         opacity:0.9,
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
         paddingTop: theme.spacing.large,
+        paddingBottom:'50px',
+        paddingLeft:'-12px!important',
+        paddingRight:'-12px!important'
     },
     address:{
         maxWidth:'650px',
@@ -150,6 +153,6 @@ const Style = createUseStyles((theme)=>({
 
 
 
-  }));
+  }))
 
   export default Style

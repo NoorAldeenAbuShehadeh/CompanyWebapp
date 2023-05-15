@@ -1,17 +1,17 @@
-import { lazy } from "react";
-import Home from "../Pages/Home/Home";
+import { lazy } from "react"
+import Home from "../Pages/Home/Home"
 
-const AboutUs = lazy(() => import("../Pages/AboutUs/AboutUs"));
-const Services = lazy(() => import("../Pages/Services/Services"));
-const News = lazy(() => import("../Pages/News/News"));
-const ContactUs = lazy(() => import("../Pages/ContactUs/ContactUs"));
+const AboutUs = lazy(() => import("../Pages/AboutUs/AboutUs"))
+const Services = lazy(() => import("../Pages/Services/Services"))
+const News = lazy(() => import("../Pages/News/News"))
+const ContactUs = lazy(() => import("../Pages/ContactUs/ContactUs"))
 export const routeNames = {
   HOME: "Home",
   ABOUT_Us: "About Us",
   SERVICES: "Services",
   NEWS: "News",
   CONTACT_Us: "Contact Us"
-};
+}
 
 export const routes = [
   {
@@ -39,4 +39,4 @@ export const routes = [
     title: routeNames.CONTACT_Us,
     component: <ContactUs />,
   },
-];
+]

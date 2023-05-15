@@ -1,9 +1,9 @@
-import React from "react";
-import { useTheme } from "react-jss";
-import Style from "../Style";
+import React from "react"
+import { useTheme } from "react-jss"
+import Style from "../Style"
 const Title = () => {
-  const theme = useTheme();
-  const classes = Style({ theme });
+  const theme = useTheme()
+  const classes = Style({ theme })
   return (
     <>
       <h1 className={classes.address}>
@@ -15,7 +15,7 @@ const Title = () => {
         solutions for modern business requirements
       </p>
     </>
-  );
-};
+  )
+}
 
-export default Title;
+export default Title
