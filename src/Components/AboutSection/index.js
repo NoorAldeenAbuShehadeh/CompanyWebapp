@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import AboutComponent from "./subComponents/AboutComponent"
 import { useTheme } from "react-jss"
 import Style from "./subComponents/AboutComponent/Style"
-import CardsData from '../Utils/AboutCards'
+import CardsData from './Utils/AboutCards'
 const AboutSection = () => {
   const theme = useTheme()
   const classes = Style({ theme })
