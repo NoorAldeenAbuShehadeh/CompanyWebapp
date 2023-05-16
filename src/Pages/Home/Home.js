@@ -4,6 +4,7 @@ import { routeNames } from "../../Utils/Utils"
 import HeroSection from "../../Components/HeroSection"
 import AboutSection from "../../Components/AboutSection"
 import WhatWeDo from "../../Components/WhatWeDo"
+import Statistics from "../../Components/Statistics"
 const Home = () => {
   const setActiveTab = useOutletContext()
   useEffect(() => {
@@ -16,6 +17,7 @@ const Home = () => {
     <AboutSection />
     <hr/>
     <WhatWeDo />
+    <Statistics />
     </>
   )
 }
