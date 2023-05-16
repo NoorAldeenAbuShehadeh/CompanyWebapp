@@ -49,7 +49,7 @@ const AboutSection = () => {
         <Row wrap="wrap">
           {values.map((item, index) => {
             return (
-              <Col
+              <Col key={index}
                 className={`d-flex flex-column justify-content-center align-items-center`}
               >
                 <AboutComponent
