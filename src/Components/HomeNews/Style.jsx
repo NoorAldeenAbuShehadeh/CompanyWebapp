@@ -13,6 +13,11 @@ const Style = createUseStyles((theme)=>({
         fontSize:'14px',
         fontWeight:400
     },
+    viewAll:{
+        alignSelf:'end',
+        color:'#6E00FA',
+        fontWeight:'bold',
+    },
     postContainer:{
         maxWidth:'320px',
         marginBottom:'50px',

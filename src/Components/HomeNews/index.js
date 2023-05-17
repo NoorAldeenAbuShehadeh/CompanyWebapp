@@ -3,7 +3,8 @@ import { Carousel, Container } from "react-bootstrap";
 import { useTheme } from "react-jss";
 import Post from "./Post";
 import mainStyle from "./Style";
-import Style from "../WhatWeDo/Style";
+import { Link } from "react-router-dom"
+import { routes,routeNames } from "../../Utils/Utils"
 const HomeNews = () => {
   const data = {
     img: "images/News1.jpg",
@@ -13,16 +14,15 @@ const HomeNews = () => {
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
   };
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
   const theme = useTheme();
   const classes = mainStyle({ theme });
+  const ViewAllPath = routes.filter((item)=>item.title===routeNames.NEWS)
   return (
     <>
       <Container
-        fluid
         className="d-flex flex-column justify-content-center align-items-center"
       >
         <h2 className={classes.mainTitle}>Our Latest News</h2>
@@ -30,6 +30,7 @@ const HomeNews = () => {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt
         </p>
+        <Link to={ViewAllPath[0].path} className={classes.viewAll}>View All</Link>
       </Container>
       <Container fluid>
         <Carousel activeIndex={index} onSelect={handleSelect} variant="dark">
