@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+.slick-prev {
+  left: 3% !important;
+  z-index: 1;
+}
+.slick-next {
+  right: 70px !important;
+  z-index: 1;
+}
+
+
+.slick-slider.slick-initialized {
+  width: 100vw;
+}
+.slick-arrow.slick-prev::before {
+  color: black;
+  width: 50px !important;
+  height: 50px !important;
+  
+}
+.slick-arrow.slick-next::before {
+  color: black;
+}
+
+.slick-next:before ,.slick-prev:before{
+  font-size: 40px !important;
+}

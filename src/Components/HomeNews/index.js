@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Carousel, Container } from "react-bootstrap";
-import { useTheme } from "react-jss";
+import React from "react";
+import { Container } from "react-bootstrap";
+import Slider from "react-slick";
+import { useTheme } from "react-jss"; 
 import Post from "./Post";
 import mainStyle from "./Style";
 import { Link } from "react-router-dom"
@@ -13,13 +14,45 @@ const HomeNews = () => {
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
   };
-  const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
   const theme = useTheme();
   const classes = mainStyle({ theme });
   const ViewAllPath = routes.filter((item)=>item.title===routeNames.NEWS)
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    arrows:true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 0
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   return (
     <>
       <Container
@@ -32,14 +65,12 @@ const HomeNews = () => {
         </p>
         <Link to={ViewAllPath[0].path} className={classes.viewAll}>View All</Link>
       </Container>
-      <Container fluid>
-        <Carousel activeIndex={index} onSelect={handleSelect} variant="dark">
+      <Container fluid style={{paddingBottom:'20px'}}>
+        <Slider {...settings}>
           {[1, 2, 3, 4, 5].map((item, idx) => (
-            <Carousel.Item>
-              <Post {...data}></Post>
-            </Carousel.Item>
+              <Post {...data} key={idx}></Post>
           ))}
-        </Carousel>
+        </Slider>
       </Container>
     </>
   );
