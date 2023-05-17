@@ -22,8 +22,8 @@ const Footer = () => {
           <Row wrap="wrap" className={`d-flex justify-content-center ${classes.rowBorder}`}>
             <Col className={classes.colWidth}>
               <h4>Key Words</h4>
-              {footerKeywords.map((item) => (
-                <Button
+              {footerKeywords.map((item,index) => (
+                <Button key={index}
                   variant="secondary"
                   className={`m-1 ${classes.keyWord}`}
                 >
