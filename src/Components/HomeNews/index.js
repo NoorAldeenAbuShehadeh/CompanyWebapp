@@ -1,25 +1,20 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Slider from "react-slick";
 import { useTheme } from "react-jss"; 
 import Post from "./Post";
 import mainStyle from "./Style";
 import { Link } from "react-router-dom"
 import { routes,routeNames } from "../../Utils/Utils"
+import { Data } from './Utils'
 const HomeNews = () => {
-  const data = {
-    img: "images/News1.jpg",
-    date: "16/5/2007",
-    title: "Holoplot",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
-  };
   const theme = useTheme();
   const classes = mainStyle({ theme });
   const ViewAllPath = routes.filter((item)=>item.title===routeNames.NEWS)
 
   const settings = {
     dots: true,
+    dotsClass: 'custom-slick-dots',
     infinite: true,
     arrows:true,
     speed: 500,
@@ -66,11 +61,15 @@ const HomeNews = () => {
         <Link to={ViewAllPath[0].path} className={classes.viewAll}>View All</Link>
       </Container>
       <Container fluid style={{paddingBottom:'20px'}}>
+      <Row>
         <Slider {...settings}>
-          {[1, 2, 3, 4, 5].map((item, idx) => (
-              <Post {...data} key={idx}></Post>
+          {Data.map((item, index) => (
+            <Col key={index} >
+              <Post {...item} ></Post>
+            </Col>
           ))}
         </Slider>
+          </Row>
       </Container>
     </>
   );

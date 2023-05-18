@@ -7,7 +7,7 @@ const Post = ({img, date, title, description}) => {
   const theme = useTheme();
   const classes = Style({ theme });
   return (
-    <Container fluid className={`${classes.postContainer} d-flex flex-column justify-content-center align-items-center`}>
+    <Container fluid className={`${classes.postContainer}`}>
         <img src={img} alt='' className={classes.imgContainer}></img>
         <span className={classes.date}>{date}</span>
         <h3 className={classes.title}>{title}</h3>

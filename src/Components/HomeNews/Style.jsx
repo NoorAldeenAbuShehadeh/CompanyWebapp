@@ -20,7 +20,7 @@ const Style = createUseStyles((theme)=>({
     },
     postContainer:{
         maxWidth:'300px',
-        marginBottom:'50px',
+        marginBottom:'30px',
     },
     imgContainer:{
         width:'300px',
