@@ -17,14 +17,14 @@ const Style = createUseStyles((theme)=>({
         height:(props)=>props.flexDirection==='column'?'260px':'310px',
         borderRadius:'44px',
         margin:'0px 30px',
-        '@media (max-width: 600px)': {
-            maxWidth:'250px',
-            height:'200px!important'
+        '@media (max-width: 500px)': {
+            maxWidth:'350px',
+            height:'245px!important'
           }
     },
     postContent:{
         maxWidth:(props)=>props.maxWidth,
-        padding:'20px'
+        padding:'20px',
     },
     publisherName:{
         fontSize:'16px',

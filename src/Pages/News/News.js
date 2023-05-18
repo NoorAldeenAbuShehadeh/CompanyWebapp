@@ -4,36 +4,24 @@ import { routeNames } from "../../Utils/Utils"
 import NewsPost from "../../Components/NewsPost"
 import { Container, Row } from "react-bootstrap"
 import StayInLoop from "../../Components/StayInLoop"
+import HeroSection from "./SubComponent/HeroSection"
+import { Data,MainData } from './Utils'
 const News = () => {
   const setActiveTab = useOutletContext()
   useEffect(() => {
     setActiveTab(routeNames.NEWS)
-  }, [])
-  const MainData = {
-    img:'images/News1.jpg',
-    title:'Lorem Ipsum is simply dummy text of the printing.',
-    description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the .",
-    publisherImg:'images/publisher1.png',
-    publisherName:'publisher name',
-    dateOfPublish:'20.12.2020',
-  }  
-
-  const Data = {
-    img:'images/News1.jpg',
-    title:'Lorem Ipsum is simply dummy text of the printing.',
-    description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the .",
-    publisherImg:'images/publisher1.png',
-    publisherName:'publisher name',
-    dateOfPublish:'20.12.2020',
-  }  
+  }, [])  
   return (
     <Container>
+      <Row>
+        <HeroSection />
+      </Row>
       <Row>
         <NewsPost maxWidth={'520px'} flexDirection={'row'} {...MainData}/>
       </Row>
 
       <Row>
-        {[1,2,3,4,5,6].map((item,index)=><NewsPost key={index} maxWidth={'330px'} flexDirection={'column'} {...MainData}/>)}
+        {Data.map((item,index)=><NewsPost key={index} maxWidth={'380px'} flexDirection={'column'} {...item}/>)}
       </Row>
 
       <Row>

@@ -23,7 +23,6 @@ const Navigation = ({ activeTab }) => {
               return (
                 <Link
                   key={idx}
-                  eventKey={idx + 1}
                   to={route.path}
                   className={
                     `${activeTab === route.title
