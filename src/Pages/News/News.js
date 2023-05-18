@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router-dom"
 import { routeNames } from "../../Utils/Utils"
 import NewsPost from "../../Components/NewsPost"
 import { Container, Row } from "react-bootstrap"
+import StayInLoop from "../../Components/StayInLoop"
 const News = () => {
   const setActiveTab = useOutletContext()
   useEffect(() => {
@@ -32,7 +33,11 @@ const News = () => {
       </Row>
 
       <Row>
-        {[1,2,3,4,5,6].map((item)=><NewsPost maxWidth={'330px'} flexDirection={'column'} {...MainData}/>)}
+        {[1,2,3,4,5,6].map((item,index)=><NewsPost key={index} maxWidth={'330px'} flexDirection={'column'} {...MainData}/>)}
+      </Row>
+
+      <Row>
+        <StayInLoop />
       </Row>
     </Container>
   )

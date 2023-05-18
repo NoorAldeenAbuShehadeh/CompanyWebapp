@@ -22,6 +22,7 @@ const Navigation = ({ activeTab }) => {
           {routes.map((route, idx) => {
               return (
                 <Link
+                  key={idx}
                   eventKey={idx + 1}
                   to={route.path}
                   className={
