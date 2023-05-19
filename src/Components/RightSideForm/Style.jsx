@@ -9,6 +9,7 @@ const Style = createUseStyles((theme)=>({
         height:'570px',
         display:'flex',
         alignItems:'flex-end',
+        maxWidth:'700px',
     },
     addressContainer:{
         paddingTop:'13px',
@@ -30,7 +31,7 @@ const Style = createUseStyles((theme)=>({
         borderTop:'1px solid white',
         '& *':{
             color:theme.colors.text,
-            padding:'40px',
+            padding :'40px 10px',
         },
         '& :not(:last-child)':{
             borderRight:"1px solid white"   
