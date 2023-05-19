@@ -26,11 +26,35 @@ const Style = createUseStyles((theme) => ({
             width:'340px',
           },
     },
-    // heroImgContainer:{
-    //     "@media (max-width: 996px)": {
-    //         order:-1
-    //       },
-    // }
+    TeamContainer:{
+        marginTop:'50px'
+    },
+    TeamContainerTitle:{
+        fontSize:'27px',
+        fontWeight:600,
+        color: theme.colors.background,
+        paddingLeft:'30px',
+        marginBottom:'40px'
+    },
+    EngagedWith:{
+        backgroundColor: theme.colors.background
+    },
+    EngagedWithTitle:{
+        color:theme.colors.text,
+        fontSize:'35px',
+        fontWeight:600,
+        textAlign:'center'
+    },
+    EngagedWithText:{
+        color:theme.colors.lightGray,
+        fontSize:'17px',
+        fontWeight:400,
+        textAlign:'center',
+        maxWidth:'760px'
+    },
+    logoContainer:{
+        maxWidth:'948px',
+    }
 }))
 
 export default Style
