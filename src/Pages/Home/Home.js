@@ -5,6 +5,7 @@ import HeroSection from "../../Components/HeroSection"
 import AboutSection from "../../Components/AboutSection"
 import WhatWeDo from "../../Components/WhatWeDo"
 import Statistics from "../../Components/Statistics"
+import HomeNews from "../../Components/HomeNews"
 const Home = () => {
   const setActiveTab = useOutletContext()
   useEffect(() => {
@@ -18,6 +19,7 @@ const Home = () => {
     <hr/>
     <WhatWeDo />
     <Statistics />
+    <HomeNews />
     </>
   )
 }
