@@ -19,7 +19,8 @@ const Style = createUseStyles((theme)=>({
     text:{
         marginLeft:'90px',
         "@media (max-width: 1056px)": {
-            marginLeft:'20px'
+            marginLeft:'20px',
+            marginTop:'20px'
           },
         fontSize:'32px',
         fontWeight:600,
