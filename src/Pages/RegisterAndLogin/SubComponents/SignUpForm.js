@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Col, Row, Button } from "react-bootstrap";
 import { BsArrowRight } from "react-icons/bs";
-import Style from "../ContactUs/Style";
+import Style from "../../ContactUs/Style";
 import { useTheme } from "react-jss";
 const SignUpForm = () => {
     const theme = useTheme();
