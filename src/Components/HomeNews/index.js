@@ -10,7 +10,9 @@ import Carousel from "../Slider/Carousel";
 const HomeNews = () => {
   const theme = useTheme();
   const classes = mainStyle({ theme });
-  const ViewAllPath = routes.filter((item)=>item.title===routeNames.NEWS)
+
+
+  const ViewAllPath = routes.find((item)=>item.title===routeNames.NEWS)
 
   
   return (
@@ -23,7 +25,7 @@ const HomeNews = () => {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt
         </p>
-        <Link to={ViewAllPath[0].path} className={classes.viewAll}>View All</Link>
+        <Link to={ViewAllPath.path} className={classes.viewAll}>View All</Link>
       </Container>
       <Container fluid style={{paddingBottom:'20px'}}>
       <Row>

@@ -65,7 +65,7 @@ const Style = createUseStyles((theme)=>({
     countContainer:{
         display:'flex',
         justifyContent:'space-between',
-        width:'280px',
+        maxWidth:'280px',
         margin:'30px 0',/*------------------------------ */
         "@media (min-width: 400px)": {
             margin:'30px 150px'

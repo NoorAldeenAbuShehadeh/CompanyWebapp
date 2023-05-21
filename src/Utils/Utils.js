@@ -1,6 +1,6 @@
 import { lazy } from "react"
 import Home from "../Pages/Home/Home"
-
+import RegisterAndLogin from "../Pages/RegisterAndLogin/RegisterAndLogin"
 const AboutUs = lazy(() => import("../Pages/AboutUs/AboutUs"))
 const Services = lazy(() => import("../Pages/Services/Services"))
 const News = lazy(() => import("../Pages/News/News"))
@@ -10,6 +10,7 @@ export const routeNames = {
   ABOUT_Us: "About Us",
   SERVICES: "Services",
   NEWS: "News",
+  RegisterAndLogin: "sign in",
   CONTACT_Us: "Contact Us"
 }
 
@@ -33,6 +34,11 @@ export const routes = [
     path: "/News",
     title: routeNames.NEWS,
     component: <News />,
+  },
+  {
+    path: "/RegisterAndLogin",
+    title: routeNames.RegisterAndLogin,
+    component: <RegisterAndLogin />,
   },
   {
     path: "/ContactUs",
