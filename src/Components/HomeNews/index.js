@@ -10,6 +10,8 @@ import Carousel from "../Slider/Carousel";
 const HomeNews = () => {
   const theme = useTheme();
   const classes = mainStyle({ theme });
+
+
   const ViewAllPath = routes.find((item)=>item.title===routeNames.NEWS)
 
   
