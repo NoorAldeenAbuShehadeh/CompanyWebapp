@@ -19,11 +19,11 @@ const Style = createUseStyles((theme)=>({
         fontWeight:'bold',
     },
     postContainer:{
-        maxWidth:'320px',
-        marginBottom:'50px',
+        maxWidth:'300px',
+        marginBottom:'30px',
     },
     imgContainer:{
-        width:'320px',
+        width:'300px',
         height:'281px',
         borderRadius: '14px 14px 0px 0px',
         // objectFit: 'contain'
