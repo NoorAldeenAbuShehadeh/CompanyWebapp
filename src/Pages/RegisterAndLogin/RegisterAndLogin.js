@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { useOutletContext } from "react-router-dom"
-import { Container, ButtonGroup, Button } from "react-bootstrap";
+import { Container, Tabs, Tab } from "react-bootstrap";
 import { useTheme } from "react-jss";
 import { routeNames } from "../../Utils/Utils"
 import RightSideForm from "../../Components/RightSideForm";
-import SignInForm from './SignInForm'
-import SignUpForm from "./SignUpForm";
+import SignInForm from './SubComponents/SignInForm'
+import SignUpForm from "./SubComponents/SignUpForm";
 import Style from "../ContactUs/Style";
 const RegisterAndLogin = () => {
     const setActiveTab = useOutletContext()
@@ -14,17 +14,22 @@ const RegisterAndLogin = () => {
     }, [])
     const theme = useTheme();
     const classes = Style(theme);
-    const [operation, setOperation] = useState("sign in")
+
   return (
-    <div fluid className={`d-flex align-items-center justify-content-between ${classes.mainContainer}`}>
-    <Container fluid >
-    <ButtonGroup size="lg" className={`mb-2 ${classes.text}`}>
-        <Button variant={operation==="sign in"?"primary":"secondary"} onClick={()=>setOperation("sign in")}>sign in</Button>
-        <Button variant={operation==="sign up"?"primary":"secondary"} onClick={()=>setOperation("sign up")}>sign up</Button>
-    </ButtonGroup>
-    {
-        operation==="sign in"?<SignInForm />: <SignUpForm />
-    }   
+    <div fluid className={`d-flex justify-content-between ${classes.mainContainer}`}>
+    <Container fluid className="m-1">
+    <Tabs
+      defaultActiveKey="sign in"
+      className="mb-3"
+    >
+      <Tab eventKey="sign in" title="sign in">
+        <p className="p-3"></p>
+        <SignInForm />
+      </Tab>
+      <Tab eventKey="sign up" title="sign up">
+        <SignUpForm />
+      </Tab>
+    </Tabs>
     </Container>
     <Container fluid className={`m-0 p-0 ${classes.RightSideForm}`} >
       <RightSideForm />
