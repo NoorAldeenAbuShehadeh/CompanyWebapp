@@ -25,6 +25,7 @@ const ContactForm = () => {
         as="textarea"
         rows={6}
         placeholder="Write here..........."
+        style={{ resize: 'none' }}
       />
     </Form.Group>
     <Form.Group as={Row} className="mb-3">

@@ -14,6 +14,7 @@ const RegisterAndLogin = () => {
     }, [])
     const theme = useTheme();
     const classes = Style(theme);
+
   return (
     <div fluid className={`d-flex justify-content-between ${classes.mainContainer}`}>
     <Container fluid className="m-1">

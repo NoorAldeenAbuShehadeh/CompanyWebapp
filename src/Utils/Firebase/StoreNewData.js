@@ -1,7 +1,7 @@
 import {collection,addDoc,serverTimestamp,onSnapshot,doc,deleteDoc} from 'firebase/firestore'
-import FirebaseApp from './index'
+import {db} from './Firebase'
 const StoreNewData = async (collectionName,docData)=>{
-    const colRef = collection(FirebaseApp.db,collectionName)
+    const colRef = collection(db,collectionName)
     return await addDoc(colRef,docData)
 
     // onSnapshot(colRef,(snapShot)=>{ //track change on data base
