@@ -65,11 +65,11 @@ const Style = createUseStyles((theme)=>({
     countContainer:{
         display:'flex',
         justifyContent:'space-between',
-        maxWidth:'280px',
+        width:'280px',
         margin:'30px 0',/*------------------------------ */
-        "@media (min-width: 400px)": {
+        "@media (min-width: 620px)": {
             margin:'30px 150px'
-        },   
+        },
         marginTop:'30px',     
     },
     bestOpinion:{

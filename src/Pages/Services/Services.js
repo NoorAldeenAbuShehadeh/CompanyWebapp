@@ -7,6 +7,7 @@ import ServiceComponent from "../../Components/ServiceComponent"
 import { useTheme } from "react-jss";
 import titleStyle from '../News/Style'
 import Style from './Style'
+import ServicesForm from "./subComponent/ServicesForm"
 const Services = () => {
   const theme = useTheme();
   const text = titleStyle({ theme});
@@ -17,15 +18,16 @@ const Services = () => {
   }, [])
 
   return (
-    <Container className={classes.servicesContainer}>
-      <h2 className={text.title} style={{textAlign:'start'}}>Our <span>Services</span></h2>
-      {
-        ServicesData.map((item,index)=>
-        <Row key={index} className={`d-flex align-items-center justify-content-center`}>
-          <ServiceComponent index={index} {...item}/>
-        </Row>)
-      }
-    </Container>
+    <ServicesForm />
+    // <Container className={classes.servicesContainer}>
+    //   <h2 className={text.title} style={{textAlign:'start'}}>Our <span>Services</span></h2>
+    //   {
+    //     ServicesData.map((item,index)=>
+    //     <Row key={index} className={`d-flex align-items-center justify-content-center`}>
+    //       <ServiceComponent index={index} {...item}/>
+    //     </Row>)
+    //   }
+    // </Container>
   )
 }
 

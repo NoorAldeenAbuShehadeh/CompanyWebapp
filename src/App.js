@@ -23,7 +23,7 @@ const theme = {
     darkGray: "#454545",
     lightGray: "#DBDBDB",
     alertBackground: "rgba(255, 255, 255, 0.36)",
-    employeeName: "#6E00FA"
+    employeeName: "#6E00FA",
     SearchBackground: "#e9ecef"
   },
   spacing: {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { Logos } from './Utils/EngagedWithLogos'
+import { Logos } from '../Utils/EngagedWithLogos'
 import { useTheme } from "react-jss";
-import Style from "./Style";
+import Style from "../Style";
 const EngagedWith = () => {
     const theme = useTheme();
     const classes = Style({ theme });

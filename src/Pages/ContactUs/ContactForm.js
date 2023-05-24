@@ -12,7 +12,7 @@ const ContactForm = () => {
       <Form.Label>Your Name</Form.Label>
       <Form.Control type="text" placeholder="Write your name" />
     </Form.Group>
-    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+    <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
       <Form.Label>Your Email</Form.Label>
       <Form.Control type="email" placeholder="Sample@gmail.com" />
     </Form.Group>
@@ -31,7 +31,7 @@ const ContactForm = () => {
     <Form.Group as={Row} className="mb-3">
       <Col className='d-flex flex-column align-items-end'>
         <Button>
-          Send <BsArrowRight />{" "}
+          Send <BsArrowRight />
         </Button>
       </Col>
     </Form.Group>
