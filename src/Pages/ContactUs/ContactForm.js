@@ -4,11 +4,17 @@ import { BsArrowRight } from "react-icons/bs";
 import Style from "./Style";
 import { useTheme } from "react-jss";
 import sendEmail from './SendEmail';
+
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+
 const ContactForm = () => {
   const theme = useTheme();
   const classes = Style(theme);
   const [email, setEmail] = useState({name:'',email:'',message:''});
-  const [response, setResponse] = useState(true)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEmail((prevState) => ({
@@ -16,9 +22,12 @@ const ContactForm = () => {
       [name]: value,}))
     }
   const handleSend=async()=>{
-    const res = await sendEmail(email.name,email.email,email.message,"s11923513@stu.najah.edu")
-    setResponse(res)
-    if(res) window.alert('email send successfully')
+    if(validateEmail(email.email)){
+    await sendEmail(email.name,email.email,email.message,"jjjjjjjjjj220379@gmail.com")
+    window.alert('email send successfully')
+  }else{
+    window.alert('your email wrong')
+  }
 
   }
 
@@ -53,8 +62,6 @@ const ContactForm = () => {
         </Button>
       </Col>
     </Form.Group>
-    {!response && setResponse(true)}
-    {!response && window.alert('your email wrong') }
   </Form>
   )
 }
