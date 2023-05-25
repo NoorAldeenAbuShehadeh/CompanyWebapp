@@ -1,29 +1,30 @@
 import React, { useState } from 'react'
-import { Form, Col, Row, Button } from "react-bootstrap";
-import { BsArrowRight } from "react-icons/bs";
-import Style from "../../ContactUs/Style";
-import { useTheme } from "react-jss";
+import { Form, Col, Row, Button, Alert } from "react-bootstrap"
+import { BsArrowRight } from "react-icons/bs"
+import Style from "../../ContactUs/Style"
+import { useTheme } from "react-jss"
 import StoreNewData from '../../../Utils/Firebase/StoreNewData'
 import SignUpFirebase from '../../../Utils/Firebase/SignUpFirebase'
 
 const SignUpForm = ({handleTabChange}) => {
     const theme = useTheme();
     const classes = Style(theme);
-    const [user,setUser] = useState({name:'',email:'',address:'',password:''});
+    const [error,setError] = useState(null)
+    const [user,setUser] = useState({name:'',email:'',address:'',password:'',role:'user'});
 
     const handleSignUp = async (User)=>{
       try {
-        if(!User.name)
-        {
-          throw new Error("please enter Full Name")
-        }
+        setError(null)
+        if(!User.name)throw new Error("please enter your name")
+        if(!User.email)throw new Error("please enter your email")
+        if(!User.address)throw new Error("please enter your address")
+        if(!User.password)throw new Error("please enter your password")
         let token = await SignUpFirebase(User.email,User.password);
-        StoreNewData("Users",User);
+        StoreNewData("Users",User)
         handleTabChange('sign in')
       } catch (error) {
-        console.log(error)
+         setError(error.toString().split(":"))
       }
-      
     }
 
     const handleChange = (e) => {
@@ -60,6 +61,11 @@ const SignUpForm = ({handleTabChange}) => {
         </Button>
       </Col>
     </Form.Group>
+    {
+      error? <Alert key='danger' variant='danger'>
+          {error[error.length-1]}
+        </Alert>:<></>
+    }
   </Form>
   )
 }

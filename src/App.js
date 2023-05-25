@@ -1,4 +1,4 @@
-import { Suspense } from "react"
+import { Suspense, useEffect } from "react"
 import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "slick-carousel/slick/slick.css";
@@ -9,8 +9,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom"
-import { routes } from "./Utils/Utils"
-
+import { routes, generateRoutes } from "./Utils/Utils"
 import PageLayout from "./Layout/PageLayout"
 import { ThemeProvider } from "react-jss"
 
@@ -37,9 +36,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route element={<PageLayout />} errorElement={<>Not Found</>}>
-        {routes.map((route, idx) => (
-          <Route path={route.path} key={idx} element={route.component} />
-        ))}
+        {generateRoutes(routes)}
       </Route>
     )
   )

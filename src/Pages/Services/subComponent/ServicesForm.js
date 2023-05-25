@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { Form, Button, Container, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import StoreNewData from '../../../Utils/Firebase/StoreNewData'
-const MyForm = () => {
-    const navigate = useNavigate();
+import { handleUpload, useServicesContext } from "../Utils";
+const ServiceForm = () => {
+  const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
+  const [services,setServices]= useServicesContext();
+  const [error,setError] = useState(null)
   const [service, setService] = useState({
     title:'',
     description:'',
@@ -29,33 +30,6 @@ const MyForm = () => {
             image: null,}))
     }
   };
-  const handleUpload = async() => {
-    if (selectedFile) {
-      const storage = getStorage();
-      const storageRef = ref(storage, 'images/' + selectedFile.name);
-      return uploadBytes(storageRef, selectedFile)
-        .then((snapshot) => {
-          console.log('File uploaded successfully!');
-          getDownloadURL(storageRef)
-            .then((downloadURL) => {
-              console.log('Download URL:', downloadURL);
-              setService((prevState) => ({
-                ...prevState,
-                image: downloadURL}))
-                StoreNewData("Services",{...service, image:downloadURL})
-                return true
-            })
-            .catch((error) => {
-              console.log('Error getting download URL:', error);
-            });
-        })
-        .catch((error) => {
-          console.log('Error uploading file:', error);
-        });
-    }
-  };
-
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,9 +38,18 @@ const MyForm = () => {
       [name]: value,}))
     }
     
-  const handleSubmit=async()=>{
-    await handleUpload()
-    navigate("/")
+  const handleSubmit=()=>{
+    setError(null)
+    try{
+    if(!service.title)throw new Error('please enter the title')
+    if(!service.description)throw new Error('please enter the description')
+    if(!service.image)throw new Error('please choose the image')
+    setServices([...services, service])
+    handleUpload(selectedFile,service)
+    navigate("/Services")
+  } catch(error){
+    setError(error.toString().split(":"))
+    }
   }
 
 
@@ -110,7 +93,12 @@ const MyForm = () => {
         Submit
       </Button>
     </Form>
+    {
+      error? <Alert key='danger' variant='danger'>
+          {error[error.length-1]}
+        </Alert>:<></>
+    }
     </Container>
   );
 };
-export default MyForm;
+export default ServiceForm;

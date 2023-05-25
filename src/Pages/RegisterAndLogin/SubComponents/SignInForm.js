@@ -1,18 +1,21 @@
 import React, {useState} from 'react'
-import { Form, Col, Row, Button } from "react-bootstrap";
+import { Form, Col, Row, Button, Alert } from "react-bootstrap";
 import { BsArrowRight } from "react-icons/bs";
 import Style from "../../ContactUs/Style";
 import { useTheme } from "react-jss";
 import LogInFirebase from '../../../Utils/Firebase/LogInFirebase'
+import RetrieveData from '../../../Utils/Firebase/RetrieveData'
 import { useCookies } from 'react-cookie'
 import { useNavigate } from 'react-router-dom';
-
+import { useUserContext } from '../../../Utils/userContext'
 const SignInForm = () => {
     const theme = useTheme();
     const classes = Style(theme);
-    const [user,setUser] = useState({email:'', password:''});
-    const [cookies, setCookies] = useCookies();
-    const navigate = useNavigate();
+    const [error,setError] = useState(null)
+    const [user,setUser] = useState({email:'', password:''})
+    const [cookies, setCookies] = useCookies()
+    const navigate = useNavigate()
+    const [activeUser ,setActiveUser] = useUserContext()
     const handleChange = (e) => {
       const { name, value } = e.target;
       setUser((prevState) => ({
@@ -22,12 +25,18 @@ const SignInForm = () => {
 
       async function handleLogIn(){
         try {
+          setError(null)
+          if(!user.email)throw new Error('please enter your email')
+          if(!user.password)throw new Error('please enter your password')
           let token = await LogInFirebase(user.email,user.password);
+          const activeUser = await RetrieveData("Users","email",token.user.email)
           setCookies("UserToken",token.user.accessToken)
           setCookies("UserEmail",token.user.email)
+          setCookies("role",activeUser[0].role)
+          setActiveUser({email: token.user.email, token: token.user.accessToken, role: activeUser[0].role})
           navigate('/');
         } catch (error) {
-          console.log(error)
+          setError(error.toString().split(":"))
         }
         
       }
@@ -49,6 +58,11 @@ const SignInForm = () => {
         </Button>
       </Col>
     </Form.Group>
+    {
+      error? <Alert key='danger' variant='danger'>
+          {error[error.length-1]}
+        </Alert>:<></>
+        }
   </Form>
   )
 }
