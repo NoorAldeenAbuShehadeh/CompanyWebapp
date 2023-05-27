@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Form, Col, Row, Button, Alert } from "react-bootstrap";
+import { Form, Col, Row, Button, Alert, Spinner } from "react-bootstrap";
 import { BsArrowRight } from "react-icons/bs";
 import Style from "../../ContactUs/Style";
 import { useTheme } from "react-jss";
@@ -16,6 +16,7 @@ const SignInForm = () => {
     const [cookies, setCookies] = useCookies()
     const navigate = useNavigate()
     const [activeUser ,setActiveUser] = useUserContext()
+    const [loading, setLoading] = useState(false)
     const handleChange = (e) => {
       const { name, value } = e.target;
       setUser((prevState) => ({
@@ -25,6 +26,7 @@ const SignInForm = () => {
 
       async function handleLogIn(){
         try {
+          setLoading(true)
           setError(null)
           if(!user.email)throw new Error('please enter your email')
           if(!user.password)throw new Error('please enter your password')
@@ -36,6 +38,7 @@ const SignInForm = () => {
           setActiveUser({email: token.user.email, token: token.user.accessToken, role: activeUser[0].role})
           navigate('/');
         } catch (error) {
+          setLoading(false)
           setError(error.toString().split(":"))
         }
         
@@ -51,11 +54,21 @@ const SignInForm = () => {
       <Form.Label>Your password</Form.Label>
       <Form.Control type="text" placeholder="Write your password" name='password' onChange={(e)=>handleChange(e)}/>
     </Form.Group>
-    <Form.Group as={Row} className="mb-3">
+    <Form.Group as={Row} className="mb-3" >
       <Col>
         <Button onClick={handleLogIn}>
           Sign in <BsArrowRight />
         </Button>
+        {loading&&<Button variant="primary" disabled className='m-4'>
+        <Spinner
+          as="span"
+          animation="grow"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        />
+        Loading...
+      </Button>}
       </Col>
     </Form.Group>
     {

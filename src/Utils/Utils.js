@@ -45,6 +45,11 @@ export const routes = [
         path: "add",
         component: <IsAdmin moveTo={'Services'} > <ServiceForm /> </IsAdmin>,
       },
+      {
+        title:"update",
+        path:"update/:id",
+        component: <IsAdmin moveTo={'Services'} > <ServiceForm /> </IsAdmin>,
+      }
     ]
   },
   {

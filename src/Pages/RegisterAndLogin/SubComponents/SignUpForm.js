@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Col, Row, Button, Alert } from "react-bootstrap"
+import { Form, Col, Row, Button, Alert, Spinner } from "react-bootstrap"
 import { BsArrowRight } from "react-icons/bs"
 import Style from "../../ContactUs/Style"
 import { useTheme } from "react-jss"
@@ -11,9 +11,10 @@ const SignUpForm = ({handleTabChange}) => {
     const classes = Style(theme);
     const [error,setError] = useState(null)
     const [user,setUser] = useState({name:'',email:'',address:'',password:'',role:'user'});
-
+    const [loading, setLoading] = useState(false)
     const handleSignUp = async (User)=>{
       try {
+        setLoading(true)
         setError(null)
         if(!User.name)throw new Error("please enter your name")
         if(!User.email)throw new Error("please enter your email")
@@ -23,7 +24,8 @@ const SignUpForm = ({handleTabChange}) => {
         StoreNewData("Users",User)
         handleTabChange('sign in')
       } catch (error) {
-         setError(error.toString().split(":"))
+        setLoading(false)
+        setError(error.toString().split(":"))
       }
     }
 
@@ -59,6 +61,16 @@ const SignUpForm = ({handleTabChange}) => {
         }}>
           sign up <BsArrowRight />
         </Button>
+        {loading&&<Button variant="primary" disabled className='m-4'>
+        <Spinner
+          as="span"
+          animation="grow"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        />
+        Loading...
+      </Button>}
       </Col>
     </Form.Group>
     {

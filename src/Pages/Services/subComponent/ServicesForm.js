@@ -1,18 +1,27 @@
-import React, { useState } from "react";
-import { Form, Button, Container, Alert } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Form, Button, Container, Alert, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { handleUpload, useServicesContext } from "../Utils";
+import { useParams } from 'react-router-dom';
+import { useServicesContext } from "../Utils";
+import { handleUpload } from "../Utils";
 const ServiceForm = () => {
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
-  const [services,setServices]= useServicesContext();
   const [error,setError] = useState(null)
+  const [services,setServices]= useServicesContext();
+  const { id } = useParams();
+  const [loading, setLoading] = useState(false)
   const [service, setService] = useState({
     title:'',
     description:'',
     image:''
   });
-
+  useEffect(()=>{
+    if(id){
+      window.scrollTo(0, 0);
+      setService(services[+id])
+    }
+  },[])
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
@@ -30,24 +39,23 @@ const ServiceForm = () => {
             image: null,}))
     }
   };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setService((prevState) => ({
       ...prevState,
       [name]: value,}))
     }
-    
-  const handleSubmit=()=>{
+  const handleSubmit=async()=>{
+    setLoading(true)
     setError(null)
     try{
     if(!service.title)throw new Error('please enter the title')
     if(!service.description)throw new Error('please enter the description')
     if(!service.image)throw new Error('please choose the image')
-    setServices([...services, service])
-    handleUpload(selectedFile,service)
+    await handleUpload(selectedFile,service,id)
     navigate("/Services")
   } catch(error){
+    setLoading(false)
     setError(error.toString().split(":"))
     }
   }
@@ -61,6 +69,7 @@ const ServiceForm = () => {
         <Form.Control
           type="text"
           placeholder="Enter title"
+          value={service.title}
           name="title"
           onChange={(e)=>handleChange(e)}
         />
@@ -74,6 +83,7 @@ const ServiceForm = () => {
           style={{ resize: 'none' }}
           placeholder="Enter description"
           name="description"
+          value={service.description}
           onChange={(e)=>handleChange(e)}
         />
       </Form.Group>
@@ -92,6 +102,16 @@ const ServiceForm = () => {
       <Button variant="primary" className="m-3 " onClick={handleSubmit}>
         Submit
       </Button>
+      {loading&&<Button variant="primary" disabled className='m-4'>
+        <Spinner
+          as="span"
+          animation="grow"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        />
+        Loading...
+      </Button>}
     </Form>
     {
       error? <Alert key='danger' variant='danger'>
