@@ -16,12 +16,9 @@ const sendEmail = async(senderName, senderEmail, message, recipientEmail)=> {
     },
   })
     .then(response => {
-      console.log('Email sent successfully!');
-      console.log('Response:', response.data);
       return true
     })
     .catch(error => {
-      console.error('Error occurred:', error.response.data);
       return false
     });
 }
