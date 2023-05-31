@@ -14,7 +14,7 @@ const ContactUs = () => {
   const theme = useTheme();
   const classes = Style(theme);
   return (  
-      <div fluid className={`d-flex align-items-center justify-content-between ${classes.mainContainer}`}>
+      <div className={`d-flex align-items-center justify-content-between ${classes.mainContainer}`}>
         <Container fluid >
           <h2 className={classes.text}>Contact <span>Us</span></h2>
           <ContactForm />

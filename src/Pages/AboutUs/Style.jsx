@@ -13,7 +13,7 @@ const Style = createUseStyles((theme) => ({
         marginTop:'80px',
         "& span":{
             color:theme.colors.primary
-        }
+        },
     },
     description:{
         fontSize:'18px',

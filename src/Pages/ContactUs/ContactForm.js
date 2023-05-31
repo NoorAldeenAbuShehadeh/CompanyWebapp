@@ -41,7 +41,7 @@ const ContactForm = () => {
       <Form.Label>Your Name</Form.Label>
       <Form.Control type="text" placeholder="Write your name" name='name' onChange={(e)=>{handleChange(e)}}/>
     </Form.Group>
-    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+    <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
       <Form.Label>Your Email</Form.Label>
       <Form.Control type="email" placeholder="Sample@gmail.com" name='email' onChange={(e)=>{handleChange(e)}}/>
     </Form.Group>

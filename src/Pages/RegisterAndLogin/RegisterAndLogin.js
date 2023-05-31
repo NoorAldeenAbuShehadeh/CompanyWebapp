@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useOutletContext } from "react-router-dom"
 import { Container, Tabs, Tab } from "react-bootstrap";
 import { useTheme } from "react-jss";
@@ -14,20 +14,24 @@ const RegisterAndLogin = () => {
     }, [])
     const theme = useTheme();
     const classes = Style(theme);
-
+    const [active, setActive] = useState('sign in')
+    const handleTabChange = (key) => {
+      setActive(key);
+    };
   return (
-    <div fluid className={`d-flex justify-content-between ${classes.mainContainer}`}>
+    <div className={`d-flex justify-content-between ${classes.mainContainer}`}>
     <Container fluid className="m-1">
     <Tabs
-      defaultActiveKey="sign in"
       className="mb-3"
+      activeKey={active}
+      onSelect={handleTabChange}
     >
       <Tab eventKey="sign in" title="sign in">
         <p className="p-3"></p>
         <SignInForm />
       </Tab>
       <Tab eventKey="sign up" title="sign up">
-        <SignUpForm />
+        <SignUpForm handleTabChange={handleTabChange}/>
       </Tab>
     </Tabs>
     </Container>

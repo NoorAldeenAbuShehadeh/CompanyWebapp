@@ -1,42 +1,35 @@
-export const ServicesData=[
-    {
-        img:'images/services1.jpg',
-        title:'Big Data & Business Analytics',
-        description:'Data is your most valuable asset.But only if you make the most of it. AFQ Tech data scientists and analysts are skilled at mining, modeling, and extracting value from data. Sourced from a range of sectors and with hands-on experience, they put you in charge and draw on the best knowledge and expertise to help you navigate your way forward.'
-    },
-    {
-        img:'images/services1.jpg',
-        title:'Big Data & Business Analytics',
-        description:'Data is your most valuable asset.But only if you make the most of it. AFQ Tech data scientists and analysts are skilled at mining, modeling, and extracting value from data. Sourced from a range of sectors and with hands-on experience, they put you in charge and draw on the best knowledge and expertise to help you navigate your way forward.'
-    },
-    {
-        img:'images/services1.jpg',
-        title:'Big Data & Business Analytics',
-        description:'Data is your most valuable asset.But only if you make the most of it. AFQ Tech data scientists and analysts are skilled at mining, modeling, and extracting value from data. Sourced from a range of sectors and with hands-on experience, they put you in charge and draw on the best knowledge and expertise to help you navigate your way forward.'
-    },
-    {
-        img:'images/services1.jpg',
-        title:'Big Data & Business Analytics',
-        description:'Data is your most valuable asset.But only if you make the most of it. AFQ Tech data scientists and analysts are skilled at mining, modeling, and extracting value from data. Sourced from a range of sectors and with hands-on experience, they put you in charge and draw on the best knowledge and expertise to help you navigate your way forward.'
-    },
-    {
-        img:'images/services1.jpg',
-        title:'Big Data & Business Analytics',
-        description:'Data is your most valuable asset.But only if you make the most of it. AFQ Tech data scientists and analysts are skilled at mining, modeling, and extracting value from data. Sourced from a range of sectors and with hands-on experience, they put you in charge and draw on the best knowledge and expertise to help you navigate your way forward.'
-    },
-    {
-        img:'images/services1.jpg',
-        title:'Big Data & Business Analytics',
-        description:'Data is your most valuable asset.But only if you make the most of it. AFQ Tech data scientists and analysts are skilled at mining, modeling, and extracting value from data. Sourced from a range of sectors and with hands-on experience, they put you in charge and draw on the best knowledge and expertise to help you navigate your way forward.'
-    },
-    {
-        img:'images/services1.jpg',
-        title:'Big Data & Business Analytics',
-        description:'Data is your most valuable asset.But only if you make the most of it. AFQ Tech data scientists and analysts are skilled at mining, modeling, and extracting value from data. Sourced from a range of sectors and with hands-on experience, they put you in charge and draw on the best knowledge and expertise to help you navigate your way forward.'
-    },
-    {
-        img:'images/services1.jpg',
-        title:'Big Data & Business Analytics',
-        description:'Data is your most valuable asset.But only if you make the most of it. AFQ Tech data scientists and analysts are skilled at mining, modeling, and extracting value from data. Sourced from a range of sectors and with hands-on experience, they put you in charge and draw on the best knowledge and expertise to help you navigate your way forward.'
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import StoreNewData from '../../Utils/Firebase/StoreNewData'
+import UpdateData from '../../Utils/Firebase/UpdateData'
+import { createContext, useContext } from "react";
+
+export const handleUpload = async (selectedFile, service, id) => {
+    try {
+      if(selectedFile){
+      const storage = getStorage();
+      const storageRef = ref(storage, 'images/' + selectedFile.name);
+      const snapshot = await uploadBytes(storageRef, selectedFile);
+      console.log('File uploaded successfully!');
+      const downloadURL = await getDownloadURL(storageRef);
+      console.log('Download URL:', downloadURL);
+      if (id) {
+        await UpdateData("Services", service.id, { title: service.title, description: service.description, image: downloadURL });
+      } else {
+        await StoreNewData("Services", { ...service, image: downloadURL });
+      }
+      }else if(id){
+        await UpdateData("Services", service.id, { title: service.title, description: service.description, image: service.image });
+      }
+      return true;
+    } catch (error) {
+      console.log('Error handling upload:', error);
     }
-]
+};
+
+
+
+export const servicesContext = createContext();
+
+export const useServicesContext = () => {
+  return useContext(servicesContext);
+};

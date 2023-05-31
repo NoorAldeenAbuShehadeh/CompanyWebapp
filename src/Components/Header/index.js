@@ -1,11 +1,15 @@
-import { Container, Nav, Navbar } from "react-bootstrap"
+import { Container, Nav, Navbar, Button } from "react-bootstrap"
 import { useTheme } from "react-jss"
 import Style from "./Style"
 import { Link } from "react-router-dom"
+import { useCookies } from 'react-cookie'
 import { routes,routeNames } from "../../Utils/Utils"
-const Navigation = ({ activeTab }) => {
+import { useUserContext } from '../../Utils/userContext'
+const Header = ({ activeTab }) => {
+  const [activeUser, setActiveUser] = useUserContext()
   const theme = useTheme()
   const classes = Style({ theme })
+  const [cookies, setCookie, removeCookie] = useCookies();
   return (
     <Navbar collapseOnSelect expand="lg" className={classes.navigationContainer}>
       <Container fluid>
@@ -36,10 +40,17 @@ const Navigation = ({ activeTab }) => {
               )
             })}
           </Nav>
+          {activeUser &&<Button className="d-flex justify-content-start m-2" onClick={()=>{
+            setActiveUser(null)
+            removeCookie('UserToken')
+            removeCookie('UserEmail')
+            removeCookie('role')
+          }
+          }>Log out</Button>}
         </Navbar.Collapse>
       </Container>
     </Navbar>
   )
 }
 
-export default Navigation
+export default Header
