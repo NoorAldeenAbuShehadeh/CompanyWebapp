@@ -5,10 +5,15 @@ import {
 import Home from "../Pages/Home/Home"
 import RegisterAndLogin from "../Pages/RegisterAndLogin/RegisterAndLogin"
 import IsAdmin from "../Components/Authorization/IsAdmin";
+import IsEmployee from "../Components/Authorization/IsEmployee";
 import ServiceForm from '../Pages/Services/subComponent/ServicesForm'
-const AboutUs = lazy(() => import("../Pages/AboutUs/AboutUs"))
+import NewsForm from "../Pages/News/SubComponent/NewsForm";
+import NewsContainer from "../Pages/News/NewsContainer";
+import AboutUsContainer from '../Pages/AboutUs/AboutUsContainer'
+import EmployeeForm from "../Pages/AboutUs/SubComponents/EmployeeForm";
+const AboutUs = lazy(() => import("../Pages/AboutUs/SubComponents/AboutUs"))
 const Services = lazy(() => import("../Pages/Services/subComponent/Services"))
-const News = lazy(() => import("../Pages/News/News"))
+const News = lazy(() => import("../Pages/News/SubComponent/News"))
 const ContactUs = lazy(() => import("../Pages/ContactUs/ContactUs"))
 const ServicesContainer = lazy(()=> import('../Pages/Services/ServicesContainer'))
 export const routeNames = {
@@ -29,7 +34,23 @@ export const routes = [
   {
     path: "/AboutUs",
     title: routeNames.ABOUT_Us,
-    component: <AboutUs />,
+    component: <AboutUsContainer />,
+        subRoutes:[
+      {
+        index: true,
+        component: <AboutUs />,
+      },
+      {
+        title: "addEmployee",
+        path: "addEmployee",
+        component: <IsAdmin moveTo={'AboutUs'} > <EmployeeForm /> </IsAdmin>,
+      },
+      {
+        title:"updateEmployee",
+        path:"updateEmployee/:id",
+        component: <IsAdmin moveTo={'AboutUs'} > <EmployeeForm /> </IsAdmin>,
+      }
+    ]
   },
   {
     path: "/Services",
@@ -55,7 +76,23 @@ export const routes = [
   {
     path: "/News",
     title: routeNames.NEWS,
-    component: <News />,
+    component: <NewsContainer />,
+    subRoutes:[
+      {
+        index: true,
+        component: <News />,
+      },
+      {
+        title: "add",
+        path: "add",
+        component: <IsEmployee moveTo={'News'} > <NewsForm /> </IsEmployee>,
+      },
+      {
+        title:"update",
+        path:"update/:id",
+        component: <IsEmployee moveTo={'News'} > <NewsForm /> </IsEmployee>,
+      }
+    ]
   },
   {
     path: "/RegisterAndLogin",

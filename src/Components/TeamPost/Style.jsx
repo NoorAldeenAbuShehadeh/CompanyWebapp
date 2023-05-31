@@ -7,7 +7,7 @@ const Style = createUseStyles((theme) => ({
         borderRadius:'9px'
     },
     jobDescription:{
-        maxWidth:'267px',
+        maxWidth:'330px',
         fontSize:'21px',
         fontWeight:500,
         color: theme.colors.background

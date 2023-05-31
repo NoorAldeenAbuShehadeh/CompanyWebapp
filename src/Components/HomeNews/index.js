@@ -1,16 +1,21 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useTheme } from "react-jss"; 
 import Post from "./Post";
 import mainStyle from "./Style";
 import { Link } from "react-router-dom"
 import { routes,routeNames } from "../../Utils/Utils"
-import { Data } from './Utils'
 import Carousel from "../Slider/Carousel";
+import RetrieveData from "../../Utils/Firebase/RetrieveData";
 const HomeNews = () => {
   const theme = useTheme();
   const classes = mainStyle({ theme });
-
+  const[news,setNews] = useState(null)
+  useEffect(() => {
+    RetrieveData('News').then((response)=>{
+      setNews(response)
+    })
+  }, [])
 
   const ViewAllPath = routes.find((item)=>item.title===routeNames.NEWS)
 
@@ -30,7 +35,7 @@ const HomeNews = () => {
       <Container fluid style={{paddingBottom:'20px'}}>
       <Row>
         <Carousel>
-          {Data.map((item, index) => (
+          {news?.map((item, index) => (
             <Col key={index} >
               <Post {...item} ></Post>
             </Col>

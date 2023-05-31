@@ -4,6 +4,7 @@ const RetrieveData = async (collectionName,key,value,order='publishDate',limitIt
     const colRef = collection(db,collectionName)
     let q;
     if(key && value)q = query(colRef,where(key, '==', value));
+    else if(collectionName==='News')q = query(colRef,orderBy("dateOfPublish",'desc'));
     else q = query(colRef);
     const querySnapshot = await getDocs(q);
     const data = querySnapshot.docs.map((item) => ({ id: item.id, ...item.data() }));

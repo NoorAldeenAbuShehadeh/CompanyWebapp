@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Container,Row, Col, Button, Placeholder } from 'react-bootstrap'
+import { Container,Row, Col, Button } from 'react-bootstrap'
 import ServiceComponent from "../../../Components/ServiceComponent"
 import { useTheme } from "react-jss";
 import titleStyle from '../../News/Style'
@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUserContext } from "../../../Utils/userContext";
 import { useServicesContext } from "../Utils";
 import { useState } from "react";
+import Loading from '../../../Components/Loading'
 const Services = () => {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -39,18 +40,7 @@ const Services = () => {
     }
   }
   return (
-    loading?<>
-    {[1,2,3,4,5,6,7].map((index)=>
-       <Container key={index}>
-       <Placeholder as="p" animation="glow">
-         <Placeholder xs={12} />
-       </Placeholder>
-       <Placeholder as="p" animation="wave">
-         <Placeholder xs={12} />
-       </Placeholder>
-     </Container>
-    )}
-    </>:
+    loading? <Loading />:
       <Container className={classes.servicesContainer}>
       <Row className="d-flex align-items-center justify-content-between">
         <Col><h2 className={text.title} style={{textAlign:'start'}}>Our <span>Services</span></h2></Col>
