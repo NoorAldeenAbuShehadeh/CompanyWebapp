@@ -55,7 +55,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NoorAldeenAbuShehadeh/CompanyWebsite/issues"
+    "url": "http://localhost:3000/"
   },
-  "homepage": "https://github.com/NoorAldeenAbuShehadeh/CompanyWebsite#readme"
+  "homepage": "http://localhost:3000/"
 }
