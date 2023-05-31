@@ -23,7 +23,7 @@ const ContactForm = () => {
     }
   const handleSend=async()=>{
     if(validateEmail(email.email)){
-    const received = await sendEmail(email.name,email.email,email.message,"jjjjjjjjjj220379@gmail.com")
+    const received = await sendEmail(email.name,email.email,email.message,"s11923513@stu.najah.edu")
     if(received){
       window.alert('email send successfully')
     }else{
