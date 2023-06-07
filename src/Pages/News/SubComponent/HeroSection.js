@@ -3,7 +3,7 @@ import { BsSearch } from "react-icons/bs";
 import { Container, InputGroup, Form } from "react-bootstrap";
 import { useTheme } from "react-jss";
 import Style from "../Style";
-const HeroSection = () => {
+const HeroSection = ({setSearchContent}) => {
   const theme = useTheme();
   const classes = Style({ theme });
   return (
@@ -24,7 +24,8 @@ const HeroSection = () => {
           </InputGroup.Text>
           <Form.Control
             id="inlineFormInputGroup"
-            placeholder="Username"
+            placeholder="publisher name"
+            onChange={(e)=>{setSearchContent(e.target.value)}}
             className={classes.searchInput}
           />
         </InputGroup>

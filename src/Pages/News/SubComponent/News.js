@@ -12,6 +12,7 @@ const News = () => {
   const [activeUser] = useUserContext();
   const [loading, setLoading] = useState(true)
   const [news, setNews] = useNewsContext()
+  const [searchContent,setSearchContent] = useState() 
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0,0)
@@ -19,13 +20,14 @@ const News = () => {
       setNews(response)
       setLoading(false)
     })
-  }, [])  
+  }, [])
+
   return (
-    loading? <Loading />:
     <Container>
       <Row>
-        <HeroSection />
+        <HeroSection setSearchContent= {setSearchContent}/>
       </Row>
+     { loading? <Loading />:(<>
       <Row>
         {
           (activeUser?.role==='admin' || activeUser?.role==='employee')&&
@@ -33,13 +35,13 @@ const News = () => {
         }
       </Row>
       <Row>
-        <NewsPost maxWidth={'520px'} flexDirection={'row'} {...news[0]}/>
+        <NewsPost maxWidth={'520px'} flexDirection={'row'} {...news[0]} index={0}/>
       </Row>
 
       <Row>
-        {news.slice(1,news.length).map((item,index)=><NewsPost key={index} maxWidth={'380px'} flexDirection={'column'} {...item}/>)}
+        {news.slice(1,news.length).map((item,index)=><NewsPost key={index} maxWidth={'380px'} flexDirection={'column'} {...item} index={index}/>)}
       </Row>
-
+      </>)}
       <Row>
         <StayInLoop />
       </Row>

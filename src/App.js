@@ -12,7 +12,7 @@ import {
 import { routes, generateRoutes } from "./Utils/Utils"
 import PageLayout from "./Layout/PageLayout"
 import { ThemeProvider } from "react-jss"
-
+import Loading from "./Components/Loading";
 const theme = {
   colors: {
     primary: "#41BBEA",
@@ -43,7 +43,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Suspense fallback={<>Loading</>}>
+      <Suspense fallback={<Loading/>}>
         <RouterProvider router={router} />
       </Suspense>
     </ThemeProvider>

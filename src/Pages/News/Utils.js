@@ -14,9 +14,9 @@ export const handleUpload = async (selectedFile, post, activeUser, id) => {
     const storage = getStorage();
     const storageRef = ref(storage, 'images/' + selectedFile.name);
     const snapshot = await uploadBytes(storageRef, selectedFile);
-    console.log('File uploaded successfully!');
+    // console.log('File uploaded successfully!');
     const downloadURL = await getDownloadURL(storageRef);
-    console.log('Download URL:', downloadURL);
+    // console.log('Download URL:', downloadURL);
     if (id) {
       await UpdateData("News", post.id, { title: post.title, description: post.description, image: downloadURL, publisherEmail:activeUser.email, dateOfPublish });
     } else {
@@ -27,7 +27,7 @@ export const handleUpload = async (selectedFile, post, activeUser, id) => {
     }
     return true;
   } catch (error) {
-    console.log('Error handling upload:', error);
+    // console.log('Error handling upload:', error);
   }
 };
 

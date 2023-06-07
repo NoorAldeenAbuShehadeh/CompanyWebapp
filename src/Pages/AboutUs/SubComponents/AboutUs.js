@@ -32,7 +32,6 @@ const AboutUs = () => {
 
 
   return (
-    loading? <Loading />:
     <Container fluid className="mt-5">
       <Container>
         <HeroSection />
@@ -44,6 +43,7 @@ const AboutUs = () => {
               <Button className="m-3" variant="primary" onClick={()=>{navigate('addEmployee')
                                                                       window.scroll(0,0)}}>add Employee</Button></Col>
           }
+          {loading? <Loading />:
           <Carousel>
             {employees.map((item, index) => (
               <>
@@ -56,6 +56,7 @@ const AboutUs = () => {
               
             ))}
           </Carousel>
+          }
         </Row>
       </Container>
       <Row className={classes.EngagedWith}>

@@ -6,6 +6,7 @@ import AboutSection from "../../Components/AboutSection"
 import WhatWeDo from "../../Components/WhatWeDo"
 import Statistics from "../../Components/Statistics"
 import HomeNews from "../../Components/HomeNews"
+import SEO from "../../Components/SEO"
 const Home = () => {
   const setActiveTab = useOutletContext()
   useEffect(() => {
@@ -14,6 +15,7 @@ const Home = () => {
 
   return (
     <>
+    <SEO titleTemplate={"Home"}/>
     <HeroSection />
     <AboutSection />
     <hr/>

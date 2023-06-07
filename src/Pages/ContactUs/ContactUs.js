@@ -6,6 +6,7 @@ import { routeNames } from "../../Utils/Utils";
 import ContactForm from "./ContactForm";
 import Style from "./Style";
 import { useTheme } from "react-jss";
+import SEO from "../../Components/SEO";
 const ContactUs = () => {
   const setActiveTab = useOutletContext();
   useEffect(() => {
@@ -15,6 +16,7 @@ const ContactUs = () => {
   const classes = Style(theme);
   return (  
       <div className={`d-flex align-items-center justify-content-between ${classes.mainContainer}`}>
+        <SEO description={"contact with company"} titleTemplate={"Contact"}/>
         <Container fluid >
           <h2 className={classes.text}>Contact <span>Us</span></h2>
           <ContactForm />

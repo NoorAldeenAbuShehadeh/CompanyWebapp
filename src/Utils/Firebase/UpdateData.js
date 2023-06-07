@@ -5,9 +5,9 @@ const UpdateData=async(collectionName, itemId, newData)=>{
   try {
     const itemRef = doc(db, collectionName, itemId);
     await updateDoc(itemRef, newData);
-    console.log('Document successfully updated!');
+    // console.log('Document successfully updated!');
   } catch (error) {
-    console.error('Error updating document:', error);
+    // console.error('Error updating document:', error);
   }
 }
 

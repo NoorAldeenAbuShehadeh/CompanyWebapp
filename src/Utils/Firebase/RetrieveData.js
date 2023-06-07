@@ -8,7 +8,6 @@ const RetrieveData = async (collectionName,key,value,order='publishDate',limitIt
     else q = query(colRef);
     const querySnapshot = await getDocs(q);
     const data = querySnapshot.docs.map((item) => ({ id: item.id, ...item.data() }));
-    console.log("data",querySnapshot.docs)
     return data;
 }
 

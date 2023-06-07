@@ -7,6 +7,7 @@ import RightSideForm from "../../Components/RightSideForm";
 import SignInForm from './SubComponents/SignInForm'
 import SignUpForm from "./SubComponents/SignUpForm";
 import Style from "../ContactUs/Style";
+import SEO from "../../Components/SEO";
 const RegisterAndLogin = () => {
     const setActiveTab = useOutletContext()
     useEffect(() => {
@@ -20,6 +21,7 @@ const RegisterAndLogin = () => {
     };
   return (
     <div className={`d-flex justify-content-between ${classes.mainContainer}`}>
+    <SEO description={"register or login to the website"} titleTemplate={"RegisterAndLogin"}/>
     <Container fluid className="m-1">
     <Tabs
       className="mb-3"

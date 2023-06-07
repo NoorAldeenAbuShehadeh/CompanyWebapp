@@ -5,9 +5,9 @@ const DeleteItem = async (collectionName, itemId) => {
     try {
       const itemRef = doc(db, collectionName, itemId);
       await deleteDoc(itemRef);
-      console.log('Item deleted successfully');
+      // console.log('Item deleted successfully');
     } catch (error) {
-      console.error('Error deleting item:', error);
+      // console.error('Error deleting item:', error);
     }
   };
 

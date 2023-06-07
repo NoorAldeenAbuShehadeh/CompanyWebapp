@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useOutletContext, Outlet } from "react-router-dom"
+import SEO from "../../Components/SEO"
 import { routeNames } from "../../Utils/Utils"
 import { servicesContext } from "./Utils"
 const ServicesContainer = () => {
@@ -10,7 +11,8 @@ const ServicesContainer = () => {
     const [services,setServices] = useState();
   return (
         <servicesContext.Provider value={[services,setServices]}>
-            <Outlet/>
+          <SEO description={"show the services in the company"} titleTemplate={"Services"}/>
+          <Outlet/>
         </servicesContext.Provider>
   )
 }

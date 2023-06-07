@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Container,Row, Col, Button } from 'react-bootstrap'
+import { Container,Row, Col, Button, Alert } from 'react-bootstrap'
 import ServiceComponent from "../../../Components/ServiceComponent"
 import { useTheme } from "react-jss";
 import titleStyle from '../../News/Style'
@@ -19,6 +19,7 @@ const Services = () => {
   const [loading, setLoading] = useState(true)
   const text = titleStyle({ theme});
   const classes = Style();
+  const [deleted ,setDeleted]=useState(false)
   useEffect(() => {
     RetrieveData('Services').then((response)=>{
       setServices(response)
@@ -34,7 +35,11 @@ const Services = () => {
     try{
     setServices(services.filter((item)=>item!==services[index]))
     DeleteItem('Services',services[index].id)
-    window.alert('deleted successfully')
+    setDeleted(true)
+    window.scrollTo(0,0)
+    setTimeout(()=>{
+      setDeleted(false)
+    },2000)
     }catch(error){
       window.alert(error.toString())
     }
@@ -47,6 +52,12 @@ const Services = () => {
         {
           activeUser?.role==='admin'&&
           <Col className="d-flex align-items-center justify-content-end"><Button variant="primary" onClick={()=>navigate('add')}>add Service </Button></Col>
+        }
+        {
+          deleted&&
+          <Alert key='success' variant='success'>
+          deleted successfully
+        </Alert>
         }
       </Row>
       {
