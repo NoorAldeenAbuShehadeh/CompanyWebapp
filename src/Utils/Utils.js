@@ -21,7 +21,7 @@ export const routeNames = {
   ABOUT_Us: "About Us",
   SERVICES: "Services",
   NEWS: "News",
-  RegisterAndLogin: "sign in",
+  RegisterAndLogin: "Sign in",
   CONTACT_Us: "Contact Us"
 }
 
