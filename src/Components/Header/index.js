@@ -24,6 +24,7 @@ const Header = ({ activeTab }) => {
         >
           <Nav className={classes.NavLinks}>
           {routes.map((route, idx) => {
+              if(activeUser && route.title === routeNames.RegisterAndLogin){return <></>}
               return (
                 <Link
                   key={idx}
