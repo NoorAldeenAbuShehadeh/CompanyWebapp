@@ -1,4 +1,4 @@
-# Company Website (CodeScape)
+# Company Webapp (CodeScape)
   Final project for React Technical Training at GSG.
   
 ## Features
