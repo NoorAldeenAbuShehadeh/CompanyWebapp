@@ -29,7 +29,7 @@
   - Backend
     - Firebase
  
- ## Deployment
+ ## Deployment at AWS
 
   The live version of the website is deployed and can be accessed at: [CodeScape Solutions](http://16.171.69.21/)
 
