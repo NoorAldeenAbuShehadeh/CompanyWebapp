@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Outlet } from "react-router-dom"
-import Footer from "../Components/Footer.js"
+import Footer from "../Components/Footer/index"
 import Header from "../Components/Header"
 import { routeNames } from "../Utils/Utils"
 import { userContext } from "../Utils/userContext.js"

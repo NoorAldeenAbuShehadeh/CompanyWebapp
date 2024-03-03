@@ -42,7 +42,7 @@ const NewsPost = ({
           </Container>
         </Container>
         {    
-          activeUser.email===publisherEmail &&
+          activeUser?.email===publisherEmail &&
           <Container className="d-flex align-items-center justify-content-end"><Button variant="primary" onClick={()=>navigate(`update/${index}`)}>update</Button></Container>
         }  
       </Container>

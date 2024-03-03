@@ -1,4 +1,5 @@
 {
+  "homepage": "https://NoorAldeenAbuShehadeh.github.io/CompanyWebapp",
   "name": "company",
   "version": "0.1.0",
   "private": true,
@@ -23,6 +24,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -58,5 +61,7 @@
   "bugs": {
     "url": "http://localhost:3000/"
   },
-  "homepage": "http://localhost:3000/"
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
 }
