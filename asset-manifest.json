@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CompanyWebapp/static/css/main.db178ad1.css",
-    "main.js": "/CompanyWebapp/static/js/main.c9ea3637.js",
+    "main.js": "/CompanyWebapp/static/js/main.5b19362a.js",
     "static/js/337.46c611e8.chunk.js": "/CompanyWebapp/static/js/337.46c611e8.chunk.js",
     "static/js/973.4a9749d6.chunk.js": "/CompanyWebapp/static/js/973.4a9749d6.chunk.js",
     "static/js/813.c41607f0.chunk.js": "/CompanyWebapp/static/js/813.c41607f0.chunk.js",
@@ -15,7 +15,7 @@
     "static/media/slick.woff": "/CompanyWebapp/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/CompanyWebapp/index.html",
     "main.db178ad1.css.map": "/CompanyWebapp/static/css/main.db178ad1.css.map",
-    "main.c9ea3637.js.map": "/CompanyWebapp/static/js/main.c9ea3637.js.map",
+    "main.5b19362a.js.map": "/CompanyWebapp/static/js/main.5b19362a.js.map",
     "337.46c611e8.chunk.js.map": "/CompanyWebapp/static/js/337.46c611e8.chunk.js.map",
     "973.4a9749d6.chunk.js.map": "/CompanyWebapp/static/js/973.4a9749d6.chunk.js.map",
     "813.c41607f0.chunk.js.map": "/CompanyWebapp/static/js/813.c41607f0.chunk.js.map",
@@ -26,6 +26,6 @@
   },
   "entrypoints": [
     "static/css/main.db178ad1.css",
-    "static/js/main.c9ea3637.js"
+    "static/js/main.5b19362a.js"
   ]
 }
