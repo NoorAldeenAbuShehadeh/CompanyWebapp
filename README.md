@@ -29,9 +29,9 @@
   - Backend
     - Firebase
  
- ## Deployment at AWS
+ ## Deployment
 
-  The live version of the website is deployed and can be accessed at: [CodeScape Solutions](https://nooraldeenabushehadeh.github.io/CompanyWebapp)
+  The live version of the website is deployed and can be accessed at: [CodeScape Solutions.](https://nooraldeenabushehadeh.github.io/CompanyWebapp)
 
 
 ## License
