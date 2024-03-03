@@ -1,6 +1,8 @@
 # Company Webapp (CodeScape)
   Final project for React Technical Training at GSG.
   
+  ![localhost_3000_](https://github.com/NoorAldeenAbuShehadeh/CompanyWebapp/assets/102482887/d850023d-5439-493c-bc6d-375f26c693e1)
+  
 ## Features
   1. Home Page: Provides an overview of the company, About Company, What We Do, statistics, Latest news.
   2. About Us page:Provide some information about company such that:
