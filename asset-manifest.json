@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/CompanyWebapp/static/css/main.db178ad1.css",
+    "main.js": "/CompanyWebapp/static/js/main.4f94be65.js",
+    "static/js/337.46c611e8.chunk.js": "/CompanyWebapp/static/js/337.46c611e8.chunk.js",
+    "static/js/973.4a9749d6.chunk.js": "/CompanyWebapp/static/js/973.4a9749d6.chunk.js",
+    "static/js/813.c41607f0.chunk.js": "/CompanyWebapp/static/js/813.c41607f0.chunk.js",
+    "static/js/78.eb562995.chunk.js": "/CompanyWebapp/static/js/78.eb562995.chunk.js",
+    "static/js/716.2ce89f1a.chunk.js": "/CompanyWebapp/static/js/716.2ce89f1a.chunk.js",
+    "static/js/787.9ecde847.chunk.js": "/CompanyWebapp/static/js/787.9ecde847.chunk.js",
+    "static/js/243.c4da2fba.chunk.js": "/CompanyWebapp/static/js/243.c4da2fba.chunk.js",
+    "static/media/slick.svg": "/CompanyWebapp/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/CompanyWebapp/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/CompanyWebapp/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/CompanyWebapp/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/CompanyWebapp/index.html",
+    "main.db178ad1.css.map": "/CompanyWebapp/static/css/main.db178ad1.css.map",
+    "main.4f94be65.js.map": "/CompanyWebapp/static/js/main.4f94be65.js.map",
+    "337.46c611e8.chunk.js.map": "/CompanyWebapp/static/js/337.46c611e8.chunk.js.map",
+    "973.4a9749d6.chunk.js.map": "/CompanyWebapp/static/js/973.4a9749d6.chunk.js.map",
+    "813.c41607f0.chunk.js.map": "/CompanyWebapp/static/js/813.c41607f0.chunk.js.map",
+    "78.eb562995.chunk.js.map": "/CompanyWebapp/static/js/78.eb562995.chunk.js.map",
+    "716.2ce89f1a.chunk.js.map": "/CompanyWebapp/static/js/716.2ce89f1a.chunk.js.map",
+    "787.9ecde847.chunk.js.map": "/CompanyWebapp/static/js/787.9ecde847.chunk.js.map",
+    "243.c4da2fba.chunk.js.map": "/CompanyWebapp/static/js/243.c4da2fba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db178ad1.css",
+    "static/js/main.4f94be65.js"
+  ]
+}

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcompany=self.webpackChunkcompany||[]).push([[716],{3716:function(e,n,s){s.r(n);var t=s(9439),c=s(2791),r=s(7689),a=s(1464),i=s(8740),u=s(9637),f=s(184);n.default=function(){var e=(0,r.bx)();(0,c.useEffect)((function(){e(i.kr.SERVICES)}),[]);var n=(0,c.useState)(),s=(0,t.Z)(n,2),o=s[0],p=s[1];return(0,f.jsxs)(u.fn.Provider,{value:[o,p],children:[(0,f.jsx)(a.Z,{description:"show the services in the company",titleTemplate:"Services"}),(0,f.jsx)(r.j3,{})]})}}}]);
+//# sourceMappingURL=716.2ce89f1a.chunk.js.map
